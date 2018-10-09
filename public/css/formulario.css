@@ -1,0 +1,51 @@
+fieldset{
+    width: 100%;
+	max-width:1500px;
+    margin:auto;
+    margin-top: 25px;
+    background:  rgb(220, 223, 223);
+    box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 5px groove;
+}
+fieldset > p{
+    line-height: 25px;
+    color: rgba(3, 3, 3, 0.9);
+    font-size: 25px;
+}
+
+label{
+    font-size: 25px;
+    color: rgba(3, 3, 3, 0.9);
+}
+
+fieldset > hr {
+	background:rgb(0, 0, 0);
+	height:3px;
+    border:none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+fieldset > legend {
+    font-size: 40px;
+    color: rgba(3, 3, 3, 0.9);
+    font-style: italic;
+}
+
+input{
+    font-size: 15px;
+    color: rgba(3, 3, 3, 0.9);
+}
+
+.boton > input{
+    font-size: 30px;
+    color: rgba(3, 3, 3, 0.9);
+    text-align:center;
+    margin-left: 44%; 
+    margin-bottom: 20px; 
+}
+
+select {
+    overflow:auto;
+    font-size: 15px;
+    color: rgba(3, 3, 3, 0.9);
+}

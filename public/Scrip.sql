@@ -146,6 +146,7 @@ DEFAULT CHARACTER SET = utf8;
 create table Consumibles(
 id_consumible integer not null auto_increment,
 nombre varchar(20) not null,
+descripcion varchar(250),
 existencias integer not null,
 precio double not null,
 costo float not null,

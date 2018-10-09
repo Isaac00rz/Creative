@@ -22,14 +22,36 @@
 		<nav>
 			<ul class="menu">
 				<li><a href=""><span class="icon-home3"></span>Inicio</a></li>
-				<li><a href=""><span class="icon-banknote"></span>Ventas</a></li>
-				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
-				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>
-				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
+				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Altas <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
-								<li id="pro"><a href=""><span class="icon-update"></span>Programación</a></li>
-								<li><a href=""><span class="icon-file-text"></span>Informe</a></li>
-								<li id="cal"><a href=""><span class="icon-calendar"></span>Calendario</a></li>
+								<li id="pro"><a href=""><span class="icon-update"></span>Impresoras</a></li>
+								<li><a href="{{ url('/Altas/Consumibles') }}"><span class="icon-file-text"></span>Consumibles</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Usuarios</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Clientes</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Provedores</a></li>
+							</ul>
+				</li>
+				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Bajas/Modi <span class="icon-dots-three-horizontal"></span></a>
+							<ul class="item">
+								<li id="pro"><a href=""><span class="icon-update"></span>Impresoras</a></li>
+								<li><a href=""><span class="icon-file-text"></span>Consumibles</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Usuarios</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Clientes</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Provedores</a></li>
+							</ul>
+				</li>
+				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>
+							<ul class="item">
+								<li id="pro"><a href=""><span class="icon-update"></span>Ventas</a></li>
+								<li><a href=""><span class="icon-file-text"></span>Mantenimiento</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Compras</a></li>
+								<li id="cal"><a href=""><span class="icon-calendar"></span>Inventario</a></li>
+							</ul>
+				</li>
+				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Sucursal <span class="icon-dots-three-horizontal"></span></a>
+							<ul class="item">
+								<li id="pro"><a href=""><span class="icon-update"></span>Alta</a></li>
+								<li><a href=""><span class="icon-file-text"></span>Administrar sucursal</a></li>
 							</ul>
 				</li>
 				<li id="arc" class="submenu"><a href="#"><span class="icon-folder"></span>Archivo<span class="icon-dots-three-horizontal"></a>

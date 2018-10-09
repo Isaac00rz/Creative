@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/home',"homeController@home");
+
+Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
