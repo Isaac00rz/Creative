@@ -93,29 +93,26 @@ header nav ul li .item li a span {
 
 .contenido{
 	text-align: justify;
-	padding: 170px 20px;
+	padding: 180px 20px;
 }
 
 #perfil span{
 	font-size: 60px;
 	color: #fff;
-	margin-right: 10px;
+	margin-right: 30px;
 }
 
 
 
 #perfil{
-	padding: 15px;
+	padding: 20px 10px 25px 10px;
 	width: 100%;
 	background: rgba(0,0,0, .7);
 
 }
 
 #empresa{
-    font-size: 35px;
-    color: #fff;
-    font-family: MV Boli;
-
+width: 155px;
 }
 
 
@@ -131,6 +128,8 @@ header nav ul li .item li a span {
 
 #perfil b{
 	color: #fff;
+	float: right;
+	margin-right: 10px;
 }
 			
 
@@ -140,11 +139,11 @@ header nav ul li .item li a span {
 	header nav{
 		display:none;
 		width: 80%;
-		height: calc(100% - 152.2px);
+		height: calc(100% - 154.317px);
 		margin: 0;
 		position: fixed;
 		z-index: 10;
-		top:152.2px;
+		top:154.317px;
 		overflow-y:scroll;
 	} 
 
@@ -176,17 +175,21 @@ header nav ul li .item li a span {
 	.menu_bar span {
 		float: right;
 		font-size: 30px;
-		margin-right:20px;
+		margin-right:5px;
 		color: rgb(66,73,73);
 	}
 
 	#perfil #empresa{
-		font-size: 25px;
+		width: 100px;
 	}
 
 	#perfil span{
 		font-size: 40px;
-		margin-right: 10px;
+		margin-right: 0;
+	}
+
+	#perfil b{
+		float: left;
 	}
 	header nav ul li .item {
 		width: 100%;

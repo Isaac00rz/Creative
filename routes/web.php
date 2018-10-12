@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/home',"homeController@home");
 
+Route::get('/home2',"homeController@home2");
+
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
 Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store");
 

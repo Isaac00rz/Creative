@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<div id="perfil"><b id="empresa">Creativos</b>
+		<div id="perfil"><img id="empresa" src="{{ asset('logo.png') }}">
 			<ul>
 				<li><span class="icon-account_circle"></span></li>
 			</ul>

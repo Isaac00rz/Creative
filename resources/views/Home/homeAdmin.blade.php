@@ -1,4 +1,4 @@
-@include('Menus.admin');
+@include('Menus.admin')
 
 <title>Home</title>
 <section class="contenido">
@@ -27,7 +27,7 @@
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 </section>
-<script src="..\..\public\js\jquery-3.3.1.js"></script>
-<script src="..\..\public\js\menu.js"></script>
+<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('js/menu.js') }}"></script>
 </body>
 </html>
