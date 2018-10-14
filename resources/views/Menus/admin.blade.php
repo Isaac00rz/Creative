@@ -50,7 +50,7 @@
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Sucursal <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
-								<li id="pro"><a href=""><span class="icon-update"></span>Alta</a></li>
+								<li id="pro"><a href="{{ url('/Altas/Sucursal') }}"><span class="icon-update"></span>Alta</a></li>
 								<li><a href=""><span class="icon-file-text"></span>Administrar sucursal</a></li>
 							</ul>
 				</li>

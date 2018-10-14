@@ -22,3 +22,5 @@ Route::get('/home2',"homeController@home2");
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
 Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store");
 
+Route::get('/Altas/Sucursal',"sucursalAltaController@formulario");
+Route::post('/Altas/Sucursal/altaSucursal',"sucursalAltaController@store");
