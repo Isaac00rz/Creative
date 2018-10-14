@@ -18,14 +18,11 @@ class sucursalAltaController extends Controller
         $cp = $request->input('CP');
         $telefono = $request->input('Telefono');
         $correo = $request->input('Correo');
-        $fechaCreacion = $request->input('FechaCreacion');
-        $activo = $request->input('Activo');
-        $id = $request ->input('Id'); // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
-        $id_sucursal = 1;// Lo mimo de arriba
+        $id = 1; // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
 
         $consulta = DB::table('sucursal')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-        ->insert(['id_sucursal'=>$id_sucursal,'Sucursal'=>$nombre,'Direccion'=> $direccion, 'Colonia'=>$colonia,
-        'CP'=>$cp,'Telefono' => $telefono,'Correo'=>$correo,'FechaCreacion'=>$fechaCreacion,'Activo'=>$activo,'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+        ->insert(['nombre'=>$nombre,'Direccion'=> $direccion, 'Colonia'=>$colonia,
+        'CP'=>$cp,'Telefono' => $telefono,'Correo'=>$correo,'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
 
         if($consulta){// La variable que se usa regresa un valor booleano, si es verdadero es que la consulta se ejecuto
             return redirect('/Altas/Sucursal');// en aso de que si se redirecciona a una direccion(no es una vista)

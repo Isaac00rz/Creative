@@ -46,20 +46,7 @@
 			
 			<input type="email" id ="Correo" name="Correo" size = "35" maxlength = "35" required/>
 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <label for ="FechaCreacion">Fecha De Creacion</label>:
 			
-			<input type="date" id ="FechaCreacion" name="FechaCreacion" required/>
-
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for ="Activo">Activo</label>:
-
-			<input type="text" id ="Activo" name="Activo" size = "10" maxlength = "10" />
-			
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for ="Id">Id</label>:
-
-			<input type="text" id ="Id" name="Id" size = "12" maxlength = "10" />
 			</center>
 			</p>
 
