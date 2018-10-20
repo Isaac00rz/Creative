@@ -1,12 +1,11 @@
-@include('Menus.admin');
+@include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/formulario.css') }}"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <title>Alta De La Sucursal</title>
 <section class="contenido">
 <form role="form" method="post" action="{{ url('/Altas/Sucursal/altaSucursal') }}">
 		{!! csrf_field() !!}
 
-		 <fieldset>
+		 <fieldset class="sucursal">
 		 	<legend>Datos De La Sucursal</legend>
 		 	<p>
 		 	<center>	
@@ -49,11 +48,11 @@
 			
 			</center>
 			</p>
-
-		 </fieldset>				
-				<hr>
+			<br><br>
 				<div class = "boton">
 					<input type="submit" value="Agregar" ></code>	
-				</div>
+				</div> 	
+
+		 </fieldset>				
 	</form>
  </section>   

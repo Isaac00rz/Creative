@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?t9l824');
-  src:  url('fonts/icomoon.eot?t9l824#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?t9l824') format('truetype'),
-    url('fonts/icomoon.woff?t9l824') format('woff'),
-    url('fonts/icomoon.svg?t9l824#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?i2augt');
+  src:  url('fonts/icomoon.eot?i2augt#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?i2augt') format('truetype'),
+    url('fonts/icomoon.woff?i2augt') format('woff'),
+    url('fonts/icomoon.svg?i2augt#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,74 +24,62 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-account_circle:before {
-  content: "\e853";
-}
-.icon-build:before {
-  content: "\e869";
-}
-.icon-shopping_cart:before {
-  content: "\e8cc";
-}
-.icon-monetization_on:before {
-  content: "\e263";
-}
-.icon-power_settings_new:before {
-  content: "\e8ac";
-}
-.icon-update:before {
-  content: "\e923";
-}
-.icon-enter:before {
-  content: "\e901";
-}
-.icon-plus:before {
-  content: "\f067";
-}
-.icon-minus:before {
-  content: "\f068";
-}
-.icon-question-circle:before {
-  content: "\f059";
-}
-.icon-wrench:before {
-  content: "\f0ad";
-}
-.icon-truck:before {
-  content: "\f0d1";
-}
-.icon-file-text-o:before {
-  content: "\f0f6";
-}
-.icon-file-text:before {
-  content: "\f15c";
-}
-.icon-handshake-o:before {
-  content: "\f2b5";
-}
-.icon-chevron-down:before {
+.icon-log-out:before {
   content: "\e908";
 }
 .icon-dots-three-horizontal:before {
-  content: "\e909";
-}
-.icon-circle-with-minus:before {
-  content: "\e903";
-}
-.icon-circle-with-plus:before {
-  content: "\e904";
-}
-.icon-log-out:before {
   content: "\e905";
 }
-.icon-login:before {
+.icon-close:before {
+  content: "\e90b";
+}
+.icon-group:before {
+  content: "\e911";
+}
+.icon-arrow-circle-o-down:before {
+  content: "\e90c";
+}
+.icon-arrow-circle-o-up:before {
+  content: "\e90d";
+}
+.icon-question-circle:before {
+  content: "\e909";
+}
+.icon-file-text-o:before {
+  content: "\e907";
+}
+.icon-wrench:before {
+  content: "\e904";
+}
+.icon-person_pin_circle:before {
+  content: "\e90e";
+}
+.icon-account_circle:before {
+  content: "\e90a";
+}
+.icon-update:before {
   content: "\e906";
 }
+.icon-monetization_on:before {
+  content: "\e903";
+}
+.icon-printer:before {
+  content: "\e90f";
+}
+.icon-mapmarker:before {
+  content: "\e912";
+}
+.icon-droplet:before {
+  content: "\e910";
+}
 .icon-cart:before {
-  content: "\e907";
+  content: "\e901";
 }
 .icon-home3:before {
   content: "\e902";
+}
+.icon-paste:before {
+  content: "\e92d";
 }
 .icon-folder:before {
   content: "\e92f";
@@ -102,12 +90,12 @@
 .icon-user-tie:before {
   content: "\e976";
 }
+.icon-truck:before {
+  content: "\e9b0";
+}
 .icon-menu:before {
   content: "\e9bd";
 }
 .icon-banknote:before {
-  content: "\e90a";
-}
-.icon-close:before {
   content: "\e900";
 }

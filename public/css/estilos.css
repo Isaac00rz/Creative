@@ -52,6 +52,7 @@ header nav ul li a:hover{
 	border-radius: 15px;
 	padding: 18px;
 	border: 2px solid rgba(255,255,255, .7);
+	color: #116DC9;
 }
 
 header nav ul li:hover .item {

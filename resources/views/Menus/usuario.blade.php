@@ -28,7 +28,7 @@
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href=""><span class="icon-update"></span>Programación</a></li>
-								<li><a href=""><span class="icon-file-text"></span>Informe</a></li>
+								<li><a href=""><span class="icon-file-text-o"></span>Informe</a></li>
 								<li id="cal"><a href=""><span class="icon-calendar"></span>Calendario</a></li>
 							</ul>
 				</li>
