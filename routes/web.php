@@ -24,3 +24,6 @@ Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store"
 
 Route::get('/Altas/Sucursal',"sucursalAltaController@formulario");
 Route::post('/Altas/Sucursal/altaSucursal',"sucursalAltaController@store");
+
+Route::get('/Altas/Impresoras',"impresoraAltaController@formulario");
+Route::post('/Altas/Impresoras/altaImpresora',"impresoraAltaController@store");
