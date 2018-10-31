@@ -11,7 +11,8 @@ PRIMARY KEY (id),
 CONSTRAINT fk_usuario_id_f
 FOREIGN KEY (id)
 REFERENCES Creative.users (id)
-)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -132,7 +133,6 @@ DEFAULT CHARACTER SET = utf8;
 create table Fiyery(
 id_impresora integer not null,
 nombre varchar(35),
-PRIMARY KEY (id_impresora),
 INDEX fk_Fiyery_I (id_impresora ASC),
 CONSTRAINT fk_Fiyery_Impre_f
 FOREIGN KEY (id_impresora)
@@ -172,7 +172,6 @@ DEFAULT CHARACTER SET = utf8;
 create table Compatibilidad(
 id_consumible integer not null,
 id_impresora integer not null,
-PRIMARY KEY (id_consumible,id_impresora),
 INDEX fk_Compa_I (id_impresora ASC),
 CONSTRAINT fk_consu_F
 FOREIGN KEY (id_consumible)
@@ -283,6 +282,175 @@ ON UPDATE NO ACTION,
 CONSTRAINT fk_Cliente_Venta_F
 FOREIGN KEY (RFC_cliente)
 REFERENCES Creative.Clientes (RFC)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table VentaImpresora(
+id_venta integer not null,
+id_impresora integer not null,
+CONSTRAINT fk_id_VentaImpresora_F
+FOREIGN KEY (id_venta)
+REFERENCES Creative.Ventas (id_venta)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_impresora_VentaImpresora_F
+FOREIGN KEY (id_impresora)
+REFERENCES Creative.Impresoras (id_impresora)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table VentaConsumible(
+id_venta integer not null,
+id_consumible integer not null,
+CONSTRAINT fk_id_VentaConsumible_F
+FOREIGN KEY (id_venta)
+REFERENCES Creative.Ventas (id_venta)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_consumible_VentaImpresora_F
+FOREIGN KEY (id_consumible)
+REFERENCES Creative.Consumibles (id_consumible)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table Renta(
+id_Renta integer not null auto_increment,
+descripcion varchar(150) not null,
+FechaRenta datetime default NOW(),
+FechaFinal date,
+Activo boolean default true,
+RFC_cliente integer not null,
+id  int(10) unsigned NOT NULL,
+id_Sucursal integer not null,
+PRIMARY KEY (id_Renta,id_Sucursal, id,RFC_cliente),
+INDEX fk_usuario_Renta_I (id ASC),
+CONSTRAINT fk_usuario_Renta_F
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Sucursal_Rentaa_F
+FOREIGN KEY (id_Sucursal)
+REFERENCES Creative.Sucursal (id_Sucursal)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Cliente_Renta_F
+FOREIGN KEY (RFC_cliente)
+REFERENCES Creative.Clientes (RFC)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table RentaImpresora(
+id_Renta integer not null,
+id_impresora integer not null,
+CONSTRAINT fk_id_RentaImpresora_F
+FOREIGN KEY (id_Renta)
+REFERENCES Creative.Renta (id_Renta)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_impresora_RentaImpresora_F
+FOREIGN KEY (id_impresora)
+REFERENCES Creative.Impresoras (id_impresora)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table MantenimientoVenta(
+id_Man integer not null auto_increment,
+descripcion varchar(150) not null,
+fechaMan datetime not null,
+id_venta integer not null,
+FechaCreacion datetime default NOW(),
+Activo boolean default true,
+id  int(10) unsigned NOT NULL,
+PRIMARY KEY (id_Man, id,id_venta),
+INDEX fk_usuario_ManVenta_I (id ASC),
+CONSTRAINT fk_usuario_ManVenta_F
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Venta_ManVenta_F
+FOREIGN KEY (id_venta)
+REFERENCES Creative.Ventas (id_venta)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table MantenimientoRenta(
+id_ManR integer not null auto_increment,
+descripcion varchar(150) not null,
+fechaMan datetime not null,
+id_Renta integer not null,
+FechaCreacion datetime default NOW(),
+Activo boolean default true,
+id  int(10) unsigned NOT NULL,
+PRIMARY KEY (id_ManR, id,id_Renta),
+INDEX fk_usuario_ManVenta_I (id ASC),
+CONSTRAINT fk_usuario_ManRenta_F
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Renta_ManRenta_F
+FOREIGN KEY (id_Renta)
+REFERENCES Creative.Renta (id_Renta)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table FinManVenta(
+id_ManVenta integer not null auto_increment,
+descripcion varchar(150) not null,
+fecha date not null,
+extras varchar(250),
+id_Man integer not null,
+FechaCreacion datetime default NOW(),
+id  int(10) unsigned NOT NULL,
+PRIMARY KEY (id_ManVenta, id,id_Man),
+INDEX fk_usuario_FinManVenta_I (id ASC),
+CONSTRAINT fk_usuario_FinManVenta_F
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Renta_FinManVenta_F
+FOREIGN KEY (id_Man)
+REFERENCES Creative.MantenimientoVenta (id_Man)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table FinManRenta(
+id_ManRenta integer not null auto_increment,
+descripcion varchar(150) not null,
+fecha date not null,
+extras varchar(250),
+id_ManR integer not null,
+FechaCreacion datetime default NOW(),
+id  int(10) unsigned NOT NULL,
+PRIMARY KEY (id_ManRenta, id,id_ManR),
+INDEX fk_usuario_FinManRenta_I (id ASC),
+CONSTRAINT fk_usuario_FinManRenta_F
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Renta_FinManRenta_F
+FOREIGN KEY (id_ManR)
+REFERENCES Creative.MantenimientoRenta (id_ManR)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
