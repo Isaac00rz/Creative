@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="{{ asset('logo.ico') }}">		
 	<link rel = "stylesheet" href = "{{ asset('css/estilos.css') }}"/>
 	<link rel = "stylesheet" href = "{{ asset('css/fonts.css') }}"/> 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -21,7 +22,7 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href=""><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/home2') }}"><span class="icon-home3"></span>Inicio</a></li>
 				<li><a href=""><span class="icon-banknote"></span>Ventas</a></li>
 				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
 				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>

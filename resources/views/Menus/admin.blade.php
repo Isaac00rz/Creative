@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="{{ asset('logo.ico') }}">
 	<link rel = "stylesheet" href = "{{ asset('css/estilos.css') }}"/>
 	<link rel = "stylesheet" href = "{{ asset('css/fonts.css') }}"/> 
 	<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
@@ -23,14 +24,14 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href=""><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/home') }}"><span class="icon-home3"></span>Inicio</a></li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-up"></span>Altas <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href="{{ url('/Altas/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
 								<li><a href="{{ url('/Altas/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
 								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/Altas/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
-								<li id="cal"><a href=""><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/Altas/Proveedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Bajas/Modi <span class="icon-dots-three-horizontal"></span></a>

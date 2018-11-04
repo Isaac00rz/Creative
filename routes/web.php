@@ -31,3 +31,6 @@ Route::post('/Altas/Impresoras/altaImpresora',"impresoraAltaController@store");
 Route::get('/Altas/Clientes',"clienteAltaController@formulario");
 Route::post('/Altas/Clientes/altaCliente',"sucursalAltaController@store");
 
+Route::get('/Altas/Proveedores',"proveedorAltaController@formulario");
+Route::post('/Altas/Proveedores/altaProveedor',"proveedorAltaController@store");
+

@@ -3,9 +3,9 @@
 
 <title>Alta Impresora</title>
 <section class="contenido">
-<form role="form" name="formImp" method="post" action="{{ url('/Altas/Impresoras/altaImpresora') }}">
+<form role="form" name="form" method="post" action="{{ url('/Altas/Impresoras/altaImpresora') }}">
 {!! csrf_field() !!}
-        <table border="1" id="tabImpresoras" style="display:inline-block;">
+        <table border="1" id="tab" style="display:inline-block;">
             <tr id="cabecera">
                 <td class="tds">Modelo</td>
                 <td class="tds">Marca</td>
@@ -17,8 +17,8 @@
                 <td class="tds">Eliminar</td>
             </tr>
             <tr>
-                <td class="tds"><input class="inputs" type="text" name="modelo[]" placeholder="modelo" required></td>
-                <td class="tds"><input class="inputs" type="text"name="marca[]" placeholder="marca" required></td>
+                <td class="tds"><input class="inputs" type="text" name="modelo[]" maxlength = "15" placeholder="modelo" required></td>
+                <td class="tds"><input class="inputs" type="text"name="marca[]" maxlength = "15" placeholder="marca" required></td>
                 <td class="tds"><input class="inputs" type="number" name="existencias[]" min="1" placeholder="existencias" required></td>
                 <td class="tds"><input class="inputs" type="number" name="precio[]" min="1" placeholder="precio" required></td>
                 <td class="tds"><input class="inputs" type="number" name="costo[]" min="1" placeholder="costo" required></td>
