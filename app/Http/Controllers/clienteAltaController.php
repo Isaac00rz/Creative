@@ -45,7 +45,7 @@ class clienteAltaController extends Controller
     }
 
     public function editar($rfc){
-
+        
     }
 
     public function eliminar($rfc){ //Eliminacion logica
