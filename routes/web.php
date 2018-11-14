@@ -34,3 +34,7 @@ Route::post('/Altas/Clientes/altaCliente',"sucursalAltaController@store");
 Route::get('/Altas/Proveedores',"proveedorAltaController@formulario");
 Route::post('/Altas/Proveedores/altaProveedor',"proveedorAltaController@store");
 
+Route::get('/BajaMod/Clientes',"clienteAltaController@busqueda");
+Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
+Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
+

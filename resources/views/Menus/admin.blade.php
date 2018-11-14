@@ -39,7 +39,7 @@
 								<li id="pro"><a href=""><span class="icon-printer"></span>Impresoras</a></li>
 								<li><a href=""><span class="icon-droplet"></span>Consumibles</a></li>
 								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
-								<li id="cal"><a href=""><span class="icon-user-tie"></span>Clientes</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href=""><span class="icon-truck"></span>Provedores</a></li>
 							</ul>
 				</li>
