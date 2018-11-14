@@ -20,14 +20,20 @@ class consumibleAltaController extends Controller
         $id = 1; // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
         $id_sucursal = 1;// Lo mimo de arriba
 
-        $consulta = DB::table('consumibles')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-        ->insert(['nombre'=>$nombre,'descripcion'=> $descripcion, 'existencias'=>$existencias,
-        'precio'=>$precio,'costo' => $costo,'id'=>$id,'id_sucursal'=>$id_sucursal]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+        $numero = count($nombre);
+        $contador=0;
 
-        if($consulta){// La variable que se usa regresa un valor booleano, si es verdadero es que la consulta se ejecuto
+        foreach($nombre as $i=>$t) {//for para todas las filas de la tabla
+            $consulta = DB::table('consumibles')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
+            ->insert(['nombre'=>$nombre,'descripcion'=> $descripcion, 'existencias'=>$existencias,
+        'precio'=>$precio,'costo' => $costo,'id'=>$id,'id_sucursal'=>$id_sucursal]); 
+            $contador++;
+        }
+        
+        if($contador == $numero){// Si se ejecutaron todas las consultas
             return redirect('/Altas/Consumibles');// en aso de que si se redirecciona a una direccion(no es una vista)
-        }else{
-            return("Nooooo");// solo diria no en caso contrario
+            }else{
+                return("Error al insertar los datos");// solo diria no en caso contrario
         }
     }
 }
