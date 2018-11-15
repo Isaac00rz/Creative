@@ -11,30 +11,33 @@ class sucursalAltaController extends Controller
         return view('Altas/sucursalAlta');// redireccion a una vista
     }
 
-     public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
-        $nombre = $request->input('Sucursal'); // Se asigna a una variable el valor del request que tenga el identificador nombre
-        $direccion = $request->input('Direccion');
-        $colonia = $request->input('Colonia');
-        $cp = $request->input('CP');
-        $telefono = $request->input('Telefono');
-        $correo = $request->input('Correo');
-        $id = 1; // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
 
-        $consulta = DB::table('sucursal')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-        ->insert(['nombre'=>$nombre,'Direccion'=> $direccion, 'Colonia'=>$colonia,
-        'CP'=>$cp,'Telefono' => $telefono,'Correo'=>$correo,'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+    public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
+        $array_nombre = $request->input('Nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $array_direccion = $request->input('Direccion');
+        $array_colonia = $request->input('Colonia');
+        $array_cp = $request->input('CP');
+        $array_telefono = $request->input('Telefono');
+        $array_email = $request->input('Correo');
+        $id = 1;
+        $id_sucursal = 1;
 
-        if($consulta){// La variable que se usa regresa un valor booleano, si es verdadero es que la consulta se ejecuto
-            return redirect('/Altas/Sucursal');// en aso de que si se redirecciona a una direccion(no es una vista)
-        }else{
-            return("Nooooo");// solo diria no en caso contrario
-        }
+        $numero = count($array_nombre);
+        $contador=0;
+
+            foreach($array_nombre as $i=>$t) {//for para todas las filas de la tabla
+                $consulta = DB::table('sucursal')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
+                ->insert(['id_Sucursal'=>$id_sucursal,'nombre'=> $array_nombre[$i],
+                'direccion'=>$array_direccion[$i],'colonia' => $array_colonia[$i],'CP'=>$array_cp[$i],
+                'Telefono'=>$array_telFijo[$i],'correo'=>$array_email[$i],'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+                $contador++;
+            }
+            
+            if($contador == $numero){// Si se ejecutaron todas las consultas correctamente
+                return redirect('/Altas/Sucursal');// en caso de que si se redirecciona a una direccion(no es una vista)
+                }else{
+                    return("Error al insertar los datos");// solo diria no en caso contrario
+            }
     }
-
-
-
-
-
-
 
 }
