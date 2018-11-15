@@ -1,58 +1,38 @@
 @include('Menus.admin')
-<link rel = "stylesheet" href = "{{ asset('css/formulario.css') }}"/>
+<link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
 <title>Alta De La Sucursal</title>
 <section class="contenido">
-<form role="form" method="post" action="{{ url('/Altas/Sucursal/altaSucursal') }}">
-		{!! csrf_field() !!}
+<form role="form" name="form" method="post" action="{{ url('/Altas/Sucursal/altaSucursal') }}">
+{!! csrf_field() !!}
+        <table border="1" id="tab" style="display:inline-block;">
+            <tr id="cabecera">
+                <td class="tds">Nombre</td>
+                <td class="tds">Dirección</td>
+                <td class="tds">Colonia</td>
+                <td class="tds">Código Postal</td>
+                <td class="tds">Teléfono</td>
+                <td class="tds">E-mail</td>
+                <td class="tds">Eliminar</td>
+            </tr>
+            <tr>
+                <td class="tds"><input class="inputs" type="text" name="Nombre[]" maxlength = "20" placeholder="nombre" required></td>
+                <td class="tds"><input class="inputs" type="text" name="Direccion[]" maxlength="30" placeholder="dirección" required></td>
+                <td class="tds"><input class="inputs" type="text" name="Colonia[]" maxlength="25" placeholder="colonia" required></td>
+                <td class="tds"><input class="inputs" type="number" name="CP[]" min="1" placeholder="CP" required></td>
+                <
+                <td class="tds"><input class="inputs" type="tel" name="Telefono[]" placeholder="4774567890" pattern="[0-9]{10}" required></td>
+                <td class="tds"><input class="inputs" type="email" name="Correo[]" maxlength = "35" placeholder="e-mail" required></td>
+                <td class="tds"><input class="inputs" type="reset" class="noEliminar" value="Eliminar" /></td>
+            </tr>
 
-		 <fieldset class="sucursal">
-		 	<legend>Datos De La Sucursal</legend>
-		 	<p>
-		 	<center>	
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for ="Sucursal">Nombre</label>: 
-			
-			<input type="text" id ="Sucursal" name="Sucursal" size = "27" maxlength = "25" required/>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for ="Direccion">Direccion</label>:
-			
-			<input type="text" id ="Direccion" name="Direccion" size = "32" maxlength = "30" required/>
-			</p></center>
-
-			</br>
-			<p>
-			<center>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for ="Colonia">Colonia</label>:
-			
-			<input type="text" id ="Colonia" name="Colonia" size = "27" maxlength = "25" required/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				
-			<label for ="CP">CP</label>:
-			
-			<input type="postal-code" id ="CP" name="CP" size = "10" maxlength = "10" required/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-			<label for ="Telefono">Telefono</label>:
-			
-			<input type="tel" id ="Telefono" name="Telefono" size = "10" maxlength = "10" required/>
-			</p></center>
- 			</br>
-
-			<p>
-			<center>
-			<label for ="Correo">Correo</label>:
-			
-			<input type="email" id ="Correo" name="Correo" size = "35" maxlength = "35" required/>
-
-			
-			</center>
-			</p>
-			<br><br>
-				<div class = "boton">
-					<input type="submit" value="Agregar" ></code>	
-				</div> 	
-
-		 </fieldset>				
-	</form>
- </section>   
+        </table>
+        <button id="add" type="button" ><b>Añadir registro</b></button>
+        <button id="aceptar" name="aceptar" type="submit" 
+        ><b>Insertar registros</b></button>
+    </form>
+    
+</section>
+<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('js/tablaSucursal.js') }}"></script>
+</body>
+</html>
