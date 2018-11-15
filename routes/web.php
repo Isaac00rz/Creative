@@ -38,3 +38,11 @@ Route::get('/BajaMod/Clientes',"clienteAltaController@busqueda");
 Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
 Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
 
+Route::get("logout", function(){
+    Auth::logout();
+    return Redirect::to('login');
+});
+
+
+Auth::routes();
+Route::get('/home', 'homeController@home')->name('home');
