@@ -12,8 +12,8 @@ class consumibleAltaController extends Controller
     }
 
     public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
-        $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
-        $descripcion = $request->input('descripcion');
+        $nombre = $request->input('Nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $descripcion = $request->input('Descripción');
         $existencias = $request->input('existencias');
         $precio = $request->input('precio');
         $costo = $request->input('costo');
@@ -24,9 +24,9 @@ class consumibleAltaController extends Controller
         $contador=0;
 
         foreach($nombre as $i=>$t) {//for para todas las filas de la tabla
-            $consulta = DB::table('consumibles')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-            ->insert(['nombre'=>$nombre,'descripcion'=> $descripcion, 'existencias'=>$existencias,
-        'precio'=>$precio,'costo' => $costo,'id'=>$id,'id_sucursal'=>$id_sucursal]); 
+            $consulta = DB::table('Consumibles')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
+            ->insert(['nombre'=>$nombre[$i],'descripcion'=> $descripcion[$i], 'existencias'=>$existencias[$i],
+        'precio'=>$precio[$i],'costo' => $costo[$i],'id'=>$id,'id_sucursal'=>$id_sucursal]); 
             $contador++;
         }
         

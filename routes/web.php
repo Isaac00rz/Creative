@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',"homeController@home");
+Route::get('/admin',"homeController@admin");
 
-Route::get('/home2',"homeController@home2");
+Route::get('/user',"homeController@user");
 
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
 Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store");
@@ -38,11 +38,15 @@ Route::get('/BajaMod/Clientes',"clienteAltaController@busqueda");
 Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
 Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
 
-Route::get("logout", function(){
+Route::get('logout',function(){
     Auth::logout();
-    return Redirect::to('login');
+    Session::flush();
+    return redirect('login');
 });
 
-
 Auth::routes();
-Route::get('/home', 'homeController@home')->name('home');
+Route::get('/home',"homeController@Redireccion");
+
+//Route::get('/home',"homeController@ProteccionDeLink");
+
+

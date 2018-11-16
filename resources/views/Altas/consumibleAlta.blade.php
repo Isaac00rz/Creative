@@ -1,6 +1,6 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/> 
- <title>Alta Impresora</title>
+ <title>Alta Consumible</title>
 <section class="contenido">
 <form role="form" name="form" method="post" action="{{ url('/Altas/Consumibles/altaConsumible') }}">
 {!! csrf_field() !!}

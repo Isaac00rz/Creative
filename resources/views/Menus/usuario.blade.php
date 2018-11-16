@@ -13,7 +13,7 @@
 			<ul>
 				<li><span class="icon-account_circle"></span></li>
 			</ul>
-			<br><b>Angel Hernández</b>	
+			<br><b>{{ Auth::user()->name }}</b>	
 		</div>
 
 		<div class="menu_bar">
@@ -22,7 +22,7 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href="{{ url('/home2') }}"><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/user') }}"><span class="icon-home3"></span>Inicio</a></li>
 				<li><a href=""><span class="icon-banknote"></span>Ventas</a></li>
 				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
 				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>
@@ -36,9 +36,16 @@
 				<li id="arc" class="submenu"><a href="#"><span class="icon-folder"></span>Archivo<span class="icon-dots-three-horizontal"></a>
 							<ul class="item">
 								<li><a href=""><span class="icon-question-circle"></span>Ayuda</a></li>
-								<li id="out"><a href=""><span class="icon-log-out"></span>Cerrar Sesión</a></li>
+								<li id="out"><a href="{{ url('logout') }}"><span class="icon-log-out"></span>Cerrar Sesión</a></li>
 							</ul>
 				</li>
 			</ul>
 		</nav>
 	</header>
+	<script>
+    var url = document.URL;
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, url);
+    });
+</script>
