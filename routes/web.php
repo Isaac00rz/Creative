@@ -46,7 +46,6 @@ Route::get('logout',function(){
 
 Auth::routes();
 Route::get('/home',"homeController@Redireccion");
-Route::get('/home',"homeController@ProteccionDeLink");
 
 
 
