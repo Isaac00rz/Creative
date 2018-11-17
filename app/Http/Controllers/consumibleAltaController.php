@@ -36,4 +36,46 @@ class consumibleAltaController extends Controller
                 return("Error al insertar los datos");// solo diria no en caso contrario
         }
     }
+
+     public function busqueda(){
+        $consulta = DB::table('consumibles')// para hacer una consulta se selecciona una tabla y de almacena en una variable
+            ->select(DB::raw("nombre, descripcion, existencias, precio, costo")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->where('Activo', '=', 1)// Uso del where
+            ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
+        return view('/Busquedas/busquedaConsumible')->with('consumibles',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
+
+    }
+
+    public function eliminar($nombre){ //Eliminacion logica
+        $update = DB::table('consumibles')// para hacer un update se selecciona la tabla
+        ->where('nombre',$nombre) // primero se da la condicion where
+        ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
+
+        return redirect('/BajaMod/Consumibles');
+    }
+
+    public function editar($rfc){
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('consumibles')
+                    ->select('nombre','descripcion','existencias','precio','costo')
+                    ->where('Activo','=',1)
+                    ->where('nombre','=',$nombre)->get();
+                 return view('/Modificaciones/consumibleMod')->with('consumible',$consulta);
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+       
+    }
+
+
 }

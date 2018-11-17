@@ -39,6 +39,13 @@ Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
 Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
 Route::get('/Cliente/editar/formulario/editar',"clienteAltaController@editarCliente");
 
+Route::get('/BajaMod/Consumibles',"consumibleAltaController@busqueda");
+Route::get('/Consumible/editar/{nombre}',"consumibleAltaController@editar");
+Route::get('/Consumible/eliminar/{nombre}',"consumibleAltaController@eliminar");
+Route::get('/Consumible/editar/formulario/editar',"consumibleAltaController@editarConsumible");
+
+
+
 Route::get('logout',function(){
     Auth::logout();
     Session::flush();

@@ -48,7 +48,7 @@ class homeController extends Controller
         }
     }
 
-/*     public function ProteccionDeLink(){
+    public function ProteccionDeLink(){
         if(Auth::check()){//Si hay una sesion iniciada
             $id = Auth::id();
             $rol = '';
@@ -64,7 +64,7 @@ class homeController extends Controller
         }else{
             return redirect('login');// Si no hay sesion iniciada se redirige al home
         }
-    } */
+    } 
 }
 
 
