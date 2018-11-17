@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //
+use Illuminate\Support\Facades\Auth;
 
 class consumibleAltaController extends Controller
 {
@@ -54,7 +55,7 @@ class consumibleAltaController extends Controller
         return redirect('/BajaMod/Consumibles');
     }
 
-    public function editar($rfc){
+    public function editar($nombre){
         if(Auth::check()){//Si hay una sesion iniciada
             $id = Auth::id();
             $rol = '';

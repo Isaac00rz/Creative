@@ -44,6 +44,11 @@ Route::get('/Consumible/editar/{nombre}',"consumibleAltaController@editar");
 Route::get('/Consumible/eliminar/{nombre}',"consumibleAltaController@eliminar");
 Route::get('/Consumible/editar/formulario/editar',"consumibleAltaController@editarConsumible");
 
+Route::get('/BajaMod/Impresoras',"impresoraAltaController@busqueda");
+Route::get('/Impresora/editar/{modelo}',"impresoraAltaController@editar");
+Route::get('/Impresora/eliminar/{modelo}',"impresoraAltaController@eliminar");
+Route::get('/Impresora/editar/formulario/editar',"impresoraAltaController@editarImpresora");
+
 
 
 Route::get('logout',function(){
