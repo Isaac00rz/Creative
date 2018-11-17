@@ -27,9 +27,9 @@ class sucursalAltaController extends Controller
 
             foreach($array_nombre as $i=>$t) {//for para todas las filas de la tabla
                 $consulta = DB::table('sucursal')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-                ->insert(['id_Sucursal'=>$id_sucursal,'nombre'=> $array_nombre[$i],
-                'direccion'=>$array_direccion[$i],'colonia' => $array_colonia[$i],'CP'=>$array_cp[$i],
-                'Telefono'=>$array_telFijo[$i],'correo'=>$array_email[$i],'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+                ->insert(['id_sucursal'=>$id_sucursal,'Nombre'=> $array_nombre[$i],
+                'Direccion'=>$array_direccion[$i],'Colonia' => $array_colonia[$i],'CP'=>$array_cp[$i],
+                'Telefono'=>$array_telefono[$i],'Correo'=>$array_email[$i],'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
                 $contador++;
             }
             

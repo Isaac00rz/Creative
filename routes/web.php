@@ -29,7 +29,7 @@ Route::get('/Altas/Impresoras',"impresoraAltaController@formulario");
 Route::post('/Altas/Impresoras/altaImpresora',"impresoraAltaController@store");
 
 Route::get('/Altas/Clientes',"clienteAltaController@formulario");
-Route::post('/Altas/Clientes/altaCliente',"sucursalAltaController@store");
+Route::post('/Altas/Clientes/altaCliente',"clienteAltaController@store");
 
 Route::get('/Altas/Proveedores',"proveedorAltaController@formulario");
 Route::post('/Altas/Proveedores/altaProveedor',"proveedorAltaController@store");
@@ -46,7 +46,8 @@ Route::get('logout',function(){
 
 Auth::routes();
 Route::get('/home',"homeController@Redireccion");
+Route::get('/home',"homeController@ProteccionDeLink");
 
-//Route::get('/home',"homeController@ProteccionDeLink");
+
 
 

@@ -29,8 +29,8 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         $contador=0;
 
             foreach($array_nombre as $i=>$t) {//for para todas las filas de la tabla
-                $consulta = DB::table('Provedores')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-                ->insert(['RFC'=>$array_rfc[$i],'nombre'=> $array_nombre[$i],'apellidoP'=> $array_apellidop[$i], 'apellidoM'=>$array_apellidoM[$i],
+                $consulta = DB::table('clientes')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
+                ->insert(['RFC'=>$array_rfc[$i],'nombre'=> $array_nombre[$i],'apellidoP'=> $array_apellidop[$i], 'apellidoM'=>$array_apellidom[$i],
                 'direccion'=>$array_direccion[$i],'colonia' => $array_colonia[$i],'CP'=>$array_cp[$i],'TelefonoPersonal'=>$array_celular[$i],
                 'TelefonoFijo'=>$array_telFijo[$i],'correo'=>$array_email[$i],'id'=>$id,'id_sucursal'=>$id_sucursal]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
                 $contador++;
