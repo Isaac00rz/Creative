@@ -37,6 +37,7 @@ Route::post('/Altas/Proveedores/altaProveedor',"proveedorAltaController@store");
 Route::get('/BajaMod/Clientes',"clienteAltaController@busqueda");
 Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
 Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
+Route::get('/Cliente/editar/formulario/editar',"clienteAltaController@editarCliente");
 
 Route::get('logout',function(){
     Auth::logout();

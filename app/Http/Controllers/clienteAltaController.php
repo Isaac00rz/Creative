@@ -24,7 +24,6 @@ class clienteAltaController extends Controller
         }else{
             return redirect('/home');// Si no hay sesion iniciada se redirige al home
         }
-        
     }
 
 public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
@@ -70,7 +69,26 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
     }
 
     public function editar($rfc){
-        
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('clientes')
+                    ->select('rfc','nombre','apellidoP','apellidoM','cp','direccion','colonia','correo','telefonoPersonal','telefonoFijo','correo')
+                    ->where('Activo','=',1)
+                    ->where('rfc','=',$rfc)->get();
+                 return view('/Modificaciones/clienteMod')->with('cliente',$consulta);
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+       
     }
 
     public function eliminar($rfc){ //Eliminacion logica
@@ -78,6 +96,29 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         ->where('rfc',$rfc) // primero se da la condicion where
         ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
 
+        return redirect('/BajaMod/Clientes');
+    }
+
+    public function editarCliente(Request $request){
+        $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $rfc = $request-> input('RFC');
+        $rfcV = $request-> input('RFCV');
+        $apellidop = $request->input('ApellidoP');
+        $apellidom = $request->input('ApellidoM');
+        $direccion = $request->input('direccion');
+        $colonia = $request->input('colonia');
+        $cp = $request->input('CP');
+        $celular = $request->input('celular');
+        $telFijo = $request->input('telFijo');
+        $email = $request->input('correo');
+        $id = 1;
+        $id_sucursal = 1;
+
+        $consulta = DB::table('clientes')
+        ->where('rfc',$rfcV)
+        ->update(['rfc' => $rfc,'nombre' => $nombre,'apellidoP' => $apellidop,'apellidoM' => $apellidom,'direccion' => $direccion,'colonia' => $colonia,
+        'cp'=>$cp,'TelefonoPersonal' => $celular,'telefonoFijo'=>$telFijo,'correo'=>$email]);
+        
         return redirect('/BajaMod/Clientes');
     }
 }
