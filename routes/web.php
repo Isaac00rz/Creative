@@ -49,6 +49,9 @@ Route::get('/Impresora/editar/{modelo}',"impresoraAltaController@editar");
 Route::get('/Impresora/eliminar/{modelo}',"impresoraAltaController@eliminar");
 Route::get('/Impresora/editar/formulario/editar',"impresoraAltaController@editarImpresora");
 
+Route::get('/Reportes/reporteInventrio', "reporteInventarioController@index"); 
+Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
+
 
 
 Route::get('logout',function(){
