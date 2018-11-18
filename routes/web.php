@@ -41,6 +41,11 @@ Route::get('/Cliente/editar/{RFC}',"clienteAltaController@editar");
 Route::get('/Cliente/eliminar/{RFC}',"clienteAltaController@eliminar");
 Route::post('/editarCliente',"clienteAltaController@editarCliente");
 
+Route::get('/BajaMod/Provedores',"proveedorAltaController@busqueda");
+Route::get('/Provedor/editar/{id_provedor}',"proveedorAltaController@editar");
+Route::get('/Provedor/eliminar/{id_provedor}',"proveedorAltaController@eliminar");
+Route::post('/editarProvedor',"proveedorAltaController@editarCliente");
+
 Route::get('/BajaMod/Consumibles',"consumibleAltaController@busqueda");
 Route::get('/Consumible/editar/{nombre}',"consumibleAltaController@editar");
 Route::get('/Consumible/eliminar/{nombre}',"consumibleAltaController@eliminar");

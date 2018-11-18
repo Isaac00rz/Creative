@@ -92,11 +92,26 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
     }
 
     public function eliminar($rfc){ //Eliminacion logica
-        $update = DB::table('clientes')// para hacer un update se selecciona la tabla
-        ->where('rfc','=',$rfc) // primero se da la condicion where
-        ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
-
-        return redirect('/BajaMod/Clientes');
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $update = DB::table('clientes')// para hacer un update se selecciona la tabla
+                ->where('rfc','=',$rfc) // primero se da la condicion where
+                ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
+        
+                return redirect('/BajaMod/Clientes');
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+       
     }
 
     public function editarCliente(Request $request){

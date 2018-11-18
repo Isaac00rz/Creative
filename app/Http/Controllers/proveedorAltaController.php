@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //
+use Illuminate\Support\Facades\Auth;
 
 class proveedorAltaController extends Controller
 {
@@ -41,5 +42,82 @@ class proveedorAltaController extends Controller
                 }else{
                     return("Error al insertar los datos");// solo diria no en caso contrario
             }
+    }
+    public function busqueda(){
+        $consulta = DB::table('provedores')// para hacer una consulta se selecciona una tabla y de almacena en una variable
+            ->select(DB::raw("id_provedor, concat(nombre,' ', apellidoP,' ',apellidoP) as nombreC, cp, direccion, correo, telefonoPersonal,descripcion")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->where('Activo', '=', 1)// Uso del where
+            ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
+        return view('/Busquedas/busquedaProvedor')->with('provedores',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
+
+    }
+    
+    public function editar($id_provedor){
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('provedores')
+                    ->select('id_provedor','nombre','apellidoP','apellidoM','cp','direccion','colonia','correo','telefonoPersonal','telefonoFijo','correo','descripcion')
+                    ->where('Activo','=',1)
+                    ->where('id_provedor','=',$id_provedor)->get();
+                 return view('/Modificaciones/provedorMod')->with('provedor',$consulta);
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+       
+    }
+
+    public function eliminar($id_provedor){ //Eliminacion logica
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $update = DB::table('provedores')// para hacer un update se selecciona la tabla
+                ->where('id_provedor','=',$id_provedor) // primero se da la condicion where
+                ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
+
+                return redirect('/BajaMod/Provedores');
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+        
+    }
+
+    public function editarCliente(Request $request){
+        $id_provedor = $request->input('id_provedorV');
+        $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $papellido = $request->input('pApellido');
+        $sapellido = $request->input('sApellido');
+        $direccion = $request->input('direccion');
+        $colonia = $request->input('colonia');
+        $cp = $request->input('CP');
+        $celular = $request->input('celular');
+        $telFijo = $request->input('telFijo');
+        $email = $request->input('correo');
+        $descripcion = $request->input('descripcion');
+        $id = 1;
+        $id_sucursal = 1;
+
+        $consulta = DB::table('provedores')
+        ->where('id_provedor','=',$id_provedor)
+        ->update(['id_provedor' => $id_provedor,'nombre' => $nombre,'apellidoP' => $papellido,'apellidoM' => $sapellido,'direccion' => $direccion,'colonia' => $colonia,
+        'cp'=>$cp,'TelefonoPersonal' => $celular,'telefonoFijo'=>$telFijo,'correo'=>$email,'descripcion' => $descripcion]);
+        
+        return redirect('/BajaMod/Provedores');
     }
 }

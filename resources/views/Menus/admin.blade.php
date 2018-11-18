@@ -40,7 +40,7 @@
 								<li><a href="{{ url('/BajaMod/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
 								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
-								<li id="cal"><a href=""><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-file-text-o"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>
