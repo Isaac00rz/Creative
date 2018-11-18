@@ -60,7 +60,10 @@ Route::post('/Impresora/editar/formulario/editar',"impresoraAltaController@edita
 Route::get('/Reportes/reporteInventrio', "reporteInventarioController@index"); 
 Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
 
-
+Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opciones"); 
+Route::get('/Reportes/Mantenimiento/General', "reporteMantenimientoController@general"); 
+Route::get('/Reportes/Mantenimiento/Pendientes', "reporteMantenimientoController@pendientes"); 
+Route::get('/Reportes/Mantenimiento/Finalizado', "reporteMantenimientoController@finalizado"); 
 
 Route::get('logout',function(){
     Auth::logout();

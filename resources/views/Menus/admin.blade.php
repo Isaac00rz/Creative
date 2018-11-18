@@ -46,7 +46,7 @@
 				<li id="man" class="submenu"><a href="#"><span class="icon-file-text-o"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href=""><span class="icon-banknote"></span>Ventas</a></li>
-								<li><a href=""><span class="icon-wrench"></span>Mantenimiento</a></li>
+								<li><a href="{{ url('/Reportes/reporteMantenimiento') }}"><span class="icon-wrench"></span>Mantenimiento</a></li>
 								<li id="cal"><a href=""><span class="icon-cart"></span>Compras</a></li>
 								<li id="cal"><a href="{{ url('/Reportes/reporteInventrio') }}"><span class="icon-paste"></span>Inventario</a></li>
 							</ul>
