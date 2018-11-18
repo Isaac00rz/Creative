@@ -93,7 +93,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
 
     public function eliminar($rfc){ //Eliminacion logica
         $update = DB::table('clientes')// para hacer un update se selecciona la tabla
-        ->where('rfc',$rfc) // primero se da la condicion where
+        ->where('rfc','=',$rfc) // primero se da la condicion where
         ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
 
         return redirect('/BajaMod/Clientes');
@@ -115,7 +115,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         $id_sucursal = 1;
 
         $consulta = DB::table('clientes')
-        ->where('rfc',$rfcV)
+        ->where('rfc','=',$rfcV)
         ->update(['rfc' => $rfc,'nombre' => $nombre,'apellidoP' => $apellidop,'apellidoM' => $apellidom,'direccion' => $direccion,'colonia' => $colonia,
         'cp'=>$cp,'TelefonoPersonal' => $celular,'telefonoFijo'=>$telFijo,'correo'=>$email]);
         

@@ -3,7 +3,8 @@
 
 <title>Editars Cliente</title>
 <section class="contenido">
-<form name="form" method="POST" action="{{ url('/Cliente/editar/formulario/editar') }}">
+<form role="form" name="form" method="post" action="{{ url('/editarCliente') }}">
+{{csrf_field()}}
         <table border="1" id="tab" style="display:inline-block;">
             <tr id="cabecera">
             	<td>RFC</td>
