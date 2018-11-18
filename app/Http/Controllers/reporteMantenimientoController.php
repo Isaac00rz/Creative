@@ -19,15 +19,15 @@ class reporteMantenimientoController extends Controller
             if($rol=='Administrador'){ 
                  return view('/Busquedas/reporteManteOp');
             }else{
-                return redirect('/home');// Si no es un usuario administrador se regresa al home
+                return redirect('/home');
             }
         }else{
-            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+            return redirect('/home');
         }
     }
 
     public function general(){
-        if(Auth::check()){//Si hay una sesion iniciada
+        if(Auth::check()){
             $id = Auth::id();
             $rol = '';
             $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
@@ -35,16 +35,20 @@ class reporteMantenimientoController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Administrador'){ 
-                 
+                 $consulta = DB::table('mantenimiento')
+                 ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
+                 ->select('mantenimiento.id_Mantenimiento','descripcion','fechaMan','id_impresora','fecha')
+                 ->where('Activo','=',1)->paginate(15);
+                 return view('Reportes/reporteManGeneral')->with('reportes',$consulta);
             }else{
-                return redirect('/home');// Si no es un usuario administrador se regresa al home
+                return redirect('/home');
             }
         }else{
-            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+            return redirect('/home');
         }
     }
     public function pendientes(){
-        if(Auth::check()){//Si hay una sesion iniciada
+        if(Auth::check()){
             $id = Auth::id();
             $rol = '';
             $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
