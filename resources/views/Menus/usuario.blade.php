@@ -42,10 +42,10 @@
 			</ul>
 		</nav>
 	</header>
-	<script>
+<!-- 	<script>
     var url = document.URL;
     history.pushState(null, null, document.URL);
     window.addEventListener('popstate', function () {
         history.pushState(null, null, url);
     });
-</script>
+</script> -->

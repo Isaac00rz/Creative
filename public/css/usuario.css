@@ -1,0 +1,43 @@
+ #cabecera{
+    background: rgb(156, 156, 156);
+    padding: 5px;
+    color:midnightblue;
+    font-size: 20px;
+    border-radius: 10px;
+}
+#contenedor{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
+    min-width: 250px;
+    background: rgb(172, 172, 172);
+    padding: 20px;
+} 
+
+.input,select{
+    display:block;
+}
+
+input,select{
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-inline-start: 10px;
+    border-radius:10px;
+}
+
+input:focus{
+border: 3px solid rgba(63, 137, 233, 0.7);
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    background: rgb(4, 101, 228);
+    cursor: pointer;
+    color: white;
+    border: none;
+}
+
+

@@ -29,7 +29,7 @@
 							<ul class="item">
 								<li id="pro"><a href="{{ url('/Altas/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
 								<li><a href="{{ url('/Altas/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
-								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
+								<li id="cal"><a href="{{ url('/Altas/Usuarios') }}"><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/Altas/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href="{{ url('/Altas/Proveedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 							</ul>
@@ -66,10 +66,10 @@
 			</ul>
 		</nav>
 	</header>
-	<script>
+<!-- 	<script>
     var url = document.URL;
     history.pushState(null, null, document.URL);
     window.addEventListener('popstate', function () {
         history.pushState(null, null, url);
     });
-</script>
+</script> -->
