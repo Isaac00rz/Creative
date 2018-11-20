@@ -36,19 +36,19 @@
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Bajas/Modi <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
-								<li id="pro"><a href=""><span class="icon-printer"></span>Impresoras</a></li>
+								<li id="pro"><a href="{{ url('/BajaMod/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
 								<li><a href="{{ url('/BajaMod/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
 								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
-								<li id="cal"><a href=""><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-file-text-o"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href=""><span class="icon-banknote"></span>Ventas</a></li>
-								<li><a href=""><span class="icon-wrench"></span>Mantenimiento</a></li>
+								<li><a href="{{ url('/Reportes/reporteMantenimiento') }}"><span class="icon-wrench"></span>Mantenimiento</a></li>
 								<li id="cal"><a href=""><span class="icon-cart"></span>Compras</a></li>
-								<li id="cal"><a href=""><span class="icon-paste"></span>Inventario</a></li>
+								<li id="cal"><a href="{{ url('/Reportes/reporteInventrio') }}"><span class="icon-paste"></span>Inventario</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-mapmarker"></span>Sucursal <span class="icon-dots-three-horizontal"></span></a>

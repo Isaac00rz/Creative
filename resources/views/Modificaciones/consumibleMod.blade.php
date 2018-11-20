@@ -1,7 +1,7 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
 
-<title>Editars Cliente</title>
+<title>Editar Consumible</title>
 <section class="contenido">
 <form name="form" method="POST" action="{{ url('/Consumible/editar/formulario/editar') }}">
         <table border="1" id="tab" style="display:inline-block;">
@@ -20,8 +20,6 @@
                 <td><input  type="number" name="Precio" maxlength="25" placeholder="precio" value = "{{$c->precio}}" required></td>
                 <td><input  type="number" name="Costo" maxlength="30" placeholder="costo" value = "{{$c->costo}}" required></td>
                 
-                
-                <td><input  type="hidden" name="RFCV" value = "{{$c->nombre}}"></td>
             </tr>
             @endforeach
         </table>
