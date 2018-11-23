@@ -41,8 +41,6 @@ DEFAULT CHARACTER SET = utf8;
 create table Clientes(
 RFC integer not null,
 nombre varchar(20) not null,
-apellidoP varchar(20) not null,
-apellidoM varchar(20) not null,
 direccion varchar(30) not null,
 colonia varchar(25) not null,
 CP integer not null,
@@ -72,8 +70,6 @@ DEFAULT CHARACTER SET = utf8;
 create table Provedores(
 id_provedor integer not null auto_increment,
 nombre varchar(20) not null,
-apellidoP varchar(20) not null,
-apellidoM varchar(20) not null,
 direccion varchar(30) not null,
 colonia varchar(25) not null,
 CP integer not null,
@@ -93,6 +89,36 @@ REFERENCES Creative.users (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION,
 CONSTRAINT fk_sucursal_Pro
+FOREIGN KEY (id_Sucursal)
+REFERENCES Creative.Sucursal (id_Sucursal)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+create table Empleados(
+id_empleado integer not null auto_increment,
+nombre varchar(20) not null,
+apellidoP varchar(20) not null,
+apellidoM varchar(20),
+direccion varchar(30) not null,
+colonia varchar(25) not null,
+CP integer not null,
+Telefono long,
+TelefonoFijo long not null,
+correo varchar(35) not null,
+FechaCreacion datetime default NOW(),
+Activo boolean default true,
+id int(10) unsigned NOT NULL,
+id_Sucursal integer not null,
+PRIMARY KEY (id_empleado,id_Sucursal, id),
+INDEX fk_usuario_Prove_I (id ASC),
+CONSTRAINT fk_usuario_Emp
+FOREIGN KEY (id)
+REFERENCES Creative.users (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_sucursal_Emp
 FOREIGN KEY (id_Sucursal)
 REFERENCES Creative.Sucursal (id_Sucursal)
 ON DELETE NO ACTION
@@ -394,6 +420,7 @@ descripcion varchar(150) not null,
 fecha date not null,
 extras varchar(250),
 id_Mantenimiento integer not null,
+id_empleado integer not null,
 FechaCreacion datetime default NOW(),
 id  int(10) unsigned NOT NULL,
 PRIMARY KEY (id_FinMantenimiento, id,id_Mantenimiento),
@@ -406,6 +433,11 @@ ON UPDATE NO ACTION,
 CONSTRAINT fk_Renta_FinMan_F
 FOREIGN KEY (id_Mantenimiento)
 REFERENCES Creative.Mantenimiento (id_Mantenimiento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_Emp_FinMan_F
+FOREIGN KEY (id_empleado)
+REFERENCES Creative.Empleados (id_empleado)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
