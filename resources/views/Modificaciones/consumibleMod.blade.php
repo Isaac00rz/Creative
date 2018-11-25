@@ -3,17 +3,19 @@
 
 <title>Editar Consumible</title>
 <section class="contenido">
-<form name="form" method="POST" action="{{ url('/Consumible/editar/formulario/editar') }}">
+<form name="form" method="POST" action="{{ url('/editarConsumible') }}">
         <table border="1" id="tab" style="display:inline-block;">
             <tr id="cabecera">
+               
                 <td>Nombre</td>
                 <td>Descripcion</td>
                 <td>Existencias</td>
                 <td>Precio</td>
                 <td>Costo</td>
             </tr>
-            @foreach ($consumible as $c)
+            @foreach ($consumibles as $c)
             <tr>
+              
                 <td><input  type="text" name="nombre" maxlength = "20" placeholder="nombre" value = "{{$c->nombre}}" required></td>
                 <td><input  type="text" name="Descripcion" maxlength = "20" placeholder="descripcion" value = "{{$c->descripcion}}" required></td>
                 <td><input  type="number" name="Existencias" maxlength = "20" placeholder="existencias" value = "{{$c->existencias}}" required></td>

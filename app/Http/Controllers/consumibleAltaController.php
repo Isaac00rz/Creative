@@ -68,7 +68,7 @@ class consumibleAltaController extends Controller
                     ->select('nombre','descripcion','existencias','precio','costo')
                     ->where('Activo','=',1)
                     ->where('nombre','=',$nombre)->get();
-                 return view('/Modificaciones/consumibleMod')->with('consumible',$consulta);
+                 return view('/Modificaciones/consumibleMod')->with('consumibles',$consulta);
             }else{
                 return redirect('/home');// Si no es un usuario administrador se regresa al home
             }
@@ -76,6 +76,23 @@ class consumibleAltaController extends Controller
             return redirect('/home');// Si no hay sesion iniciada se redirige al home
         }
        
+    }
+
+     public function editarComsumible(Request $request){
+
+        $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $descripcion = $request-> input('descripcion');
+        $existencias = $request->input('existencias');
+        $precio = $request->input('precio');
+        $costo = $request->input('costo');
+        $id = 1;
+        $id_sucursal = 1;
+
+        $consulta = DB::table('consumibles')
+        ->where('nombre','=',$nombre)
+        ->update(['nombre' => $nombre,'descripcion' => $descripcion,'existencias' => $existencias,'precio' => $precio,'costo' => $costo]);
+        
+        return redirect('/BajaMod/Consumibles');
     }
 
 

@@ -52,7 +52,7 @@ Route::post('/editarProvedor',"proveedorAltaController@editarCliente");
 Route::get('/BajaMod/Consumibles',"consumibleAltaController@busqueda");
 Route::get('/Consumible/editar/{nombre}',"consumibleAltaController@editar");
 Route::get('/Consumible/eliminar/{nombre}',"consumibleAltaController@eliminar");
-Route::post('/Consumible/editar/formulario/editar',"consumibleAltaController@editarConsumible");
+Route::post('/editarConsumible',"consumibleAltaController@editarConsumible");
 
 Route::get('/BajaMod/Impresoras',"impresoraAltaController@busqueda");
 Route::get('/Impresora/editar/{modelo}',"impresoraAltaController@editar");

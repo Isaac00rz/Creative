@@ -56,7 +56,7 @@ class impresoraAltaController extends Controller
     }
 
     public function busqueda(){
-        $consulta = DB::table('impresoras')// para hacer una consulta se selecciona una tabla y de almacena en una variable
+        $consulta = DB::table('Impresoras')// para hacer una consulta se selecciona una tabla y de almacena en una variable
             ->select(DB::raw("modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
             ->where('Activo', '=', 1)// Uso del where
             ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
@@ -65,7 +65,7 @@ class impresoraAltaController extends Controller
     }
 
      public function eliminar($modelo){ //Eliminacion logica
-        $update = DB::table('impresoras')// para hacer un update se selecciona la tabla
+        $update = DB::table('Impresoras')// para hacer un update se selecciona la tabla
         ->where('modelo',$modelo) // primero se da la condicion where
         ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
 
@@ -82,7 +82,7 @@ class impresoraAltaController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Administrador'){ 
-                $consulta = DB::table('impresoras')
+                $consulta = DB::table('Impresoras')
                     ->select('modelo','marca','existencias','precio','costo','precioRenta','FechaCompra')
                     ->where('Activo','=',1)
                     ->where('modelo','=',$modelo)->get();
@@ -96,7 +96,23 @@ class impresoraAltaController extends Controller
        
     }
 
+ public function editarImpresora(Request $request){
+        $modelo = $request->input('modelo');
+        $marca = $request->input('marca'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $existencias = $request->input('existencias');
+        $precio = $request->input('precio');
+        $costo = $request->input('costo');
+        $preciorenta = $request->input('precioRenta');
+        $fCompra = $request->input('FechaCompra');
+        $id = 1;
+        $id_sucursal = 1;
 
+        $consulta = DB::table('Impresoras')
+        ->where('modelo','=',$modelo)
+        ->update(['modelo'=>$modelo,'marca' => $marca,'descripcion' => $descripcion,'existencias' => $existencias,'precio' => $precio,'costo' => $costo,'precioRenta'=>$preciorenta,'FechaCompra'=> $fCompra]);
+        
+        return redirect('/BajaMod/Impresoras');
+    }
 
 
 }
