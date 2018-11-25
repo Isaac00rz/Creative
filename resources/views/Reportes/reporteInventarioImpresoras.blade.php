@@ -1,8 +1,7 @@
-
 @include('Menus.admin')
 
 
-<form role="form" name="form" method="post" action="{{ url('/Reportes/reporteInventario/') }}">
+<form role="form" name="form" method="post" action="{{ url('/Reportes/reporteInventrio/Impresoras/') }}">
 {!! csrf_field() !!}
 
 
@@ -32,10 +31,10 @@
      <h4>Invetory Data</h4>
     </div>
     <div class="col-md-5" align="right">
-     <a href="{{ url('dynamic_pdf/pdf') }}" class="btn btn-danger">Convert into PDF</a>
+     <a href="{{ url('dynamic_pdf2/pdf2') }}" class="btn btn-danger">Convert into PDF</a>
     </div>
     <div class="col-md-5" align="left">
-     <a href="{{ url('/Reportes/reporteInventrio/Impresoras') }}" class="btn btn-danger">Impresoras</a>
+     <a href="{{ url('/Reportes/reporteInventrio/') }}" class="btn btn-danger">consumibles</a>
     </div>
    </div>
    <br />
@@ -43,23 +42,25 @@
     <table class="table table-striped table-bordered">
      <thead>
       <tr>
-       <th>Nombre</th>
-       <th>Descripcion</th>
+       <th>Modelo</th>
+       <th>Marca</th>
        <th>Existencias</th>
        <th>Precio</th>
        <th>Costo</th>
-       <th>Fecha de Creacion</th>
+        <th>Precio de Renta</th>
+       <th>Fecha de Compra</th>
       </tr>
      </thead>
      <tbody>
      @foreach($inventory_data as $inventory)
       <tr>
-       <td>{{ $inventory->nombre }}</td>
-       <td>{{ $inventory->descripcion }}</td>
+       <td>{{ $inventory->modelo }}</td>
+       <td>{{ $inventory->marca }}</td>
        <td>{{ $inventory->existencias }}</td>
        <td>{{ $inventory->precio }}</td>
        <td>{{ $inventory->costo }}</td>
-       <td>{{ $inventory->FechaCreacion }}</td>
+       <td>{{ $inventory->precioRenta }}</td>
+       <td>{{ $inventory->FechaCompra }}</td>
       </tr>
      @endforeach
      </tbody>

@@ -62,6 +62,10 @@ Route::post('/Impresora/editar/formulario/editar',"impresoraAltaController@edita
 
 Route::get('/Reportes/reporteInventrio', "reporteInventarioController@index"); 
 Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
+Route::get('/Reportes/reporteInventrio/Impresoras', "reporteInventarioController@index2"); 
+Route::get('/dynamic_pdf2/pdf2',"reporteInventarioController@pdf2");
+
+
 
 Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opciones"); 
 Route::get('/Reportes/Mantenimiento/General', "reporteMantenimientoController@general"); 
