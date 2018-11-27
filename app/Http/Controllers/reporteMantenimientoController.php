@@ -37,8 +37,9 @@ class reporteMantenimientoController extends Controller
             if($rol=='Administrador'){ 
                  $consulta = DB::table('mantenimiento')
                  ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
-                 ->select('mantenimiento.id_Mantenimiento','descripcion','fechaMan','id_impresora','fecha')
-                 ->where('Activo','=',1)->paginate(15);
+                 ->join('empleados','finMan.id_empleado','=','empleados.id_empleado')
+                 ->select(DB::raw("mantenimiento.id_Mantenimiento,descripcion,fechaMan,id_impresora,fecha,modelo CONCAT(empleados.nombre, ' ',empleado.apellidoP,' ',empleado.apellidoM) as nombreC"))
+                 ->where('mantenimiento.Activo','=',1)->paginate(15);
                  return view('Reportes/reporteManGeneral')->with('reportes',$consulta);
             }else{
                 return redirect('/home');

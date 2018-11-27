@@ -3,11 +3,10 @@
 
 <title>Alta Del Cliente</title>
 <section class="contenido">
-<form role="form" name="form" method="post" action="{{ url('/Altas/Clientes/altaCliente') }}">
+<form role="form" name="form" method="post" action="{{ url('/Altas/Empleado/altaEmpleado') }}">
 {!! csrf_field() !!}
         <table border="1" id="tab" style="display:inline-block;">
             <tr id="cabecera">
-                <td class="tds">RFC</td>
                 <td class="tds">Nombre</td>
                 <td class="tds">Primer Apellido</td>
                 <td class="tds">Segundo Apellido</td>
@@ -20,7 +19,7 @@
                 <td class="tds">Eliminar</td>
             </tr>
             <tr>
-                <td class="tds"><input class="inputs" type="text" name="RFC[]" maxlength = "25" placeholder="rfc" required></td>
+
                 <td class="tds"><input class="inputs" type="text" name="nombre[]" maxlength = "20" placeholder="nombre" required></td>
                 <td class="tds"><input class="inputs" type="text" name="ApellidoP[]" maxlength = "20" placeholder="primer apellido" required></td>
                 <td class="tds"><input class="inputs" type="text"name="ApellidoM[]" maxlength = "20" placeholder="segundo apellido" required></td>
@@ -41,6 +40,6 @@
     
 </section>
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-<script src="{{ asset('js/tablaCliente.js') }}"></script>
+<script src="{{ asset('js/tablaEmpleado.js') }}"></script>
 </body>
 </html>

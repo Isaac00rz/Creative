@@ -32,6 +32,7 @@
 								<li id="cal"><a href="{{ url('/Altas/Usuarios') }}"><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/Altas/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href="{{ url('/Altas/Proveedores') }}"><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/Altas/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Bajas/Modi <span class="icon-dots-three-horizontal"></span></a>

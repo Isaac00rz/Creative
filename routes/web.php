@@ -19,7 +19,8 @@ Route::get('/admin',"homeController@admin");
 
 Route::get('/user',"homeController@user");
 
-
+Route::get('/Altas/Empleados',"empleadoController@formulario");
+Route::post('/Altas/Empleado/altaEmpleado',"empleadoController@store");
 
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
 Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store");
