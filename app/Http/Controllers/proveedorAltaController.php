@@ -28,8 +28,6 @@ class proveedorAltaController extends Controller
 
     public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
         $array_nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
-        $array_papellido = $request->input('pApellido');
-        $array_sapellido = $request->input('sApellido');
         $array_direccion = $request->input('direccion');
         $array_colonia = $request->input('colonia');
         $array_cp = $request->input('CP');
@@ -45,7 +43,7 @@ class proveedorAltaController extends Controller
 
             foreach($array_nombre as $i=>$t) {//for para todas las filas de la tabla
                 $consulta = DB::table('Provedores')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
-                ->insert(['nombre'=> $array_nombre[$i],'apellidoP'=> $array_papellido[$i], 'apellidoM'=>$array_sapellido[$i],
+                ->insert(['nombre'=> $array_nombre[$i],
                 'direccion'=>$array_direccion[$i],'colonia' => $array_colonia[$i],'CP'=>$array_cp[$i],'TelefonoPersonal'=>$array_celular[$i],
                 'TelefonoFijo'=>$array_telFijo[$i],'correo'=>$array_email[$i],'descripcion'=>$array_descripcion[$i],'id'=>$id,'id_sucursal'=>$id_sucursal]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
                 $contador++;
@@ -59,7 +57,7 @@ class proveedorAltaController extends Controller
     }
     public function busqueda(){
         $consulta = DB::table('provedores')// para hacer una consulta se selecciona una tabla y de almacena en una variable
-            ->select(DB::raw("id_provedor, concat(nombre,' ', apellidoP,' ',apellidoP) as nombreC, cp, direccion, correo, telefonoPersonal,descripcion")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->select(DB::raw("id_provedor, nombre as nombreC, cp, direccion, correo, telefonoPersonal,descripcion")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
             ->where('Activo', '=', 1)// Uso del where
             ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
         return view('/Busquedas/busquedaProvedor')->with('provedores',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
@@ -76,7 +74,7 @@ class proveedorAltaController extends Controller
             }
             if($rol=='Administrador'){ 
                 $consulta = DB::table('provedores')
-                    ->select('id_provedor','nombre','apellidoP','apellidoM','cp','direccion','colonia','correo','telefonoPersonal','telefonoFijo','correo','descripcion')
+                    ->select('id_provedor','nombre','cp','direccion','colonia','correo','telefonoPersonal','telefonoFijo','correo','descripcion')
                     ->where('Activo','=',1)
                     ->where('id_provedor','=',$id_provedor)->get();
                  return view('/Modificaciones/provedorMod')->with('provedor',$consulta);
@@ -115,8 +113,6 @@ class proveedorAltaController extends Controller
     public function editarCliente(Request $request){
         $id_provedor = $request->input('id_provedorV');
         $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
-        $papellido = $request->input('pApellido');
-        $sapellido = $request->input('sApellido');
         $direccion = $request->input('direccion');
         $colonia = $request->input('colonia');
         $cp = $request->input('CP');
@@ -129,7 +125,7 @@ class proveedorAltaController extends Controller
 
         $consulta = DB::table('provedores')
         ->where('id_provedor','=',$id_provedor)
-        ->update(['id_provedor' => $id_provedor,'nombre' => $nombre,'apellidoP' => $papellido,'apellidoM' => $sapellido,'direccion' => $direccion,'colonia' => $colonia,
+        ->update(['id_provedor' => $id_provedor,'nombre' => $nombre,'direccion' => $direccion,'colonia' => $colonia,
         'cp'=>$cp,'TelefonoPersonal' => $celular,'telefonoFijo'=>$telFijo,'correo'=>$email,'descripcion' => $descripcion]);
         
         return redirect('/BajaMod/Provedores');

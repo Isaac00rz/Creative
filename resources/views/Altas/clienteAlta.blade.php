@@ -9,8 +9,6 @@
             <tr id="cabecera">
                 <td class="tds">RFC</td>
                 <td class="tds">Nombre</td>
-                <td class="tds">Primer Apellido</td>
-                <td class="tds">Segundo Apellido</td>
                 <td class="tds">Dirección</td>
                 <td class="tds">Colonia</td>
                 <td class="tds">Código Postal</td>
@@ -22,8 +20,6 @@
             <tr>
                 <td class="tds"><input class="inputs" type="text" name="RFC[]" maxlength = "25" placeholder="rfc" required></td>
                 <td class="tds"><input class="inputs" type="text" name="nombre[]" maxlength = "20" placeholder="nombre" required></td>
-                <td class="tds"><input class="inputs" type="text" name="ApellidoP[]" maxlength = "20" placeholder="primer apellido" required></td>
-                <td class="tds"><input class="inputs" type="text"name="ApellidoM[]" maxlength = "20" placeholder="segundo apellido" required></td>
                 <td class="tds"><input class="inputs" type="text" name="direccion[]" maxlength="30" placeholder="dirección" required></td>
                 <td class="tds"><input class="inputs" type="text" name="colonia[]" maxlength="25" placeholder="colonia" required></td>
                 <td class="tds"><input class="inputs" type="number" name="CP[]" min="1" placeholder="CP" required></td>

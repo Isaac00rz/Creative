@@ -1,5 +1,4 @@
 @include('Menus.admin')
-<link rel = "stylesheet" href = "{{ asset('css/formulario.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/tablaDatos.css') }}">
 <title>Baja/Mod cliente</title>
 <section class="contenido">

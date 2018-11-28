@@ -1,17 +1,16 @@
 @include('Menus.admin')
-<link rel = "stylesheet" href = "{{ asset('css/formulario.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/tablaDatos.css') }}">
 <title>Baja/Mod Provedor</title>
 <section class="contenido">
 <table id="tabla" cellpadding = "0" cellspacing="0">
 	<thead>
 	<tr>
-        <th>Id_provedor</th>
+        <th>ID</th>
         <th>Nombre</th>
         <th>CP</th>
-        <th>Direccion </th>
-        <th>Correo </th>
-		<th>Telefono Personal </th>
+        <th>Direccion</th>
+        <th>Correo</th>
+		<th>Telefono</th>
         <th>Descripción</th>
 		<th>Accion</th>
 	</tr>
