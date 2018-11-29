@@ -22,6 +22,9 @@ Route::get('/user',"homeController@user");
 Route::get('/Altas/Empleados',"empleadoController@formulario");
 Route::post('/Altas/Empleado/altaEmpleado',"empleadoController@store");
 
+Route::get('/Altas/Compatibilidad',"compatibilidadController@formulario");
+Route::post('/Altas/altaCompatibilidad',"compatibilidadController@store");
+
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");
 Route::post('/Altas/Consumibles/altaConsumible',"consumibleAltaController@store");
 
