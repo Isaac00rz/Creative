@@ -1,10 +1,9 @@
-@include('Menus.admin')
-<link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
-<link rel = "stylesheet" href = "{{ asset('css/botones.css') }}">
-<section class="contenido">
+<html>
+<head>
+<link rel = "stylesheet" href = "{{ asset('css/reporteTablaPDF.css') }}"/>
+</head>
     <title>Reporte Mantenimiento General</title>
     <h3 align="center">Mantenimieto General</h3>
-    <div id="tabla">
         <table cellspacing="0">
             <tr>
                 <th>ID Mantenimiento</th>
@@ -33,8 +32,4 @@
             </tr>
             @endforeach
         </table>
-    </div>
-    {{ $reportes->links() }}
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Mantenimiento/General/pdf') }}'">Generar PDF</button>
-
-</section>
+</html>

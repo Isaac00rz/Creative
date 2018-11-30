@@ -73,6 +73,7 @@ Route::get('/dynamic_pdf2/pdf2',"reporteInventarioController@pdf2");
 
 Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opciones"); 
 Route::get('/Reportes/Mantenimiento/General', "reporteMantenimientoController@general"); 
+Route::get('/Reportes/Mantenimiento/General/pdf', "mantenimientosPDFController@generalPDF"); 
 Route::get('/Reportes/Mantenimiento/Pendientes', "reporteMantenimientoController@pendientes"); 
 Route::get('/Reportes/Mantenimiento/Finalizado', "reporteMantenimientoController@finalizado"); 
 

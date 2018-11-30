@@ -25,4 +25,5 @@
             @endforeach
         </table>
     </div>
+    {{ $reportes->links() }}
 </section>
