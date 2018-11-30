@@ -58,16 +58,29 @@ class reporteMantenimientoController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Administrador'){ 
-                 
+                $ids = DB::table('FinMan')
+                ->select('id_mantenimiento')->get();
+
+                foreach($ids as $id){
+                    $data[] = $id->id_mantenimiento;
+                }
+
+                $consulta = DB::table('mantenimiento')
+                ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
+                ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora, modelo"))
+                ->where('mantenimiento.Activo','=',1)
+                ->whereNotIn('mantenimiento.id_Mantenimiento', $data)->paginate(15);
+                return view('Reportes/reporteManPen')->with('reportes',$consulta);
             }else{
-                return redirect('/home');// Si no es un usuario administrador se regresa al home
+                return redirect('/home');
             }
         }else{
-            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+            return redirect('/home');
         }
     }
     public function finalizado(){
-        if(Auth::check()){//Si hay una sesion iniciada
+        if(Auth::check()){
             $id = Auth::id();
             $rol = '';
             $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
@@ -75,12 +88,18 @@ class reporteMantenimientoController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Administrador'){ 
-                 
+                $consulta = DB::table('mantenimiento')
+                ->Join('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
+                ->join('empleados','finMan.id_empleado','=','empleados.id_empleado')
+                ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora,fecha, modelo,CONCAT(empleados.nombre, ' ',empleados.apellidoP,' ',empleados.apellidoM) as nombreC, finMan.descripcion as notas"))
+                ->where('mantenimiento.Activo','=',1)->paginate(15);
+                return view('Reportes/reporteManFin')->with('reportes',$consulta);
             }else{
-                return redirect('/home');// Si no es un usuario administrador se regresa al home
+                return redirect('/home');
             }
         }else{
-            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+            return redirect('/home');
         }
     }
 }
