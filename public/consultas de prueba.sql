@@ -51,6 +51,14 @@ from mantenimiento left join FinMan on mantenimiento.id_Mantenimiento = FinMan.i
 left join empleados on FinMan.id_empleado = FinMan.id_empleado
 inner join impresoras on mantenimiento.id_impresora = impresoras.id_impresora;
 
+select mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora,fecha, modelo
+from mantenimiento left join FinMan on mantenimiento.id_Mantenimiento = FinMan.id_Mantenimiento
+inner join impresoras on mantenimiento.id_impresora = impresoras.id_impresora
+where mantenimiento.id_Mantenimiento not in (
+select id_mantenimiento from finman
+);
+
+
 select * from FinMan;
 
 insert into FinMan values (null,'Finalizacion normal','2018/11/02','Ninguno',5,1,now(),1);
