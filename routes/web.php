@@ -75,7 +75,9 @@ Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opc
 Route::get('/Reportes/Mantenimiento/General', "reporteMantenimientoController@general"); 
 Route::get('/Reportes/Mantenimiento/General/pdf', "mantenimientosPDFController@generalPDF"); 
 Route::get('/Reportes/Mantenimiento/Pendientes', "reporteMantenimientoController@pendientes"); 
+Route::get('/Reportes/Mantenimiento/Pendientes/pdf', "mantenimientosPDFController@faltantesPDF"); 
 Route::get('/Reportes/Mantenimiento/Finalizado', "reporteMantenimientoController@finalizado"); 
+Route::get('/Reportes/Mantenimiento/Finalizado/pdf', "mantenimientosPDFController@finalizadosPDF"); 
 
 Route::get('logout',function(){
     Auth::logout();
