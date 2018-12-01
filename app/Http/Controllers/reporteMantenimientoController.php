@@ -39,7 +39,7 @@ class reporteMantenimientoController extends Controller
                  ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
                  ->leftjoin('empleados','finMan.id_empleado','=','empleados.id_empleado')
                  ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
-                 ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora,fecha, modelo,CONCAT(empleados.nombre, ' ',empleados.apellidoP,' ',empleados.apellidoM) as nombreC"))
+                 ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora,fecha, modelo,CONCAT(empleados.nombre, ' ',empleados.apellidoP,' ',empleados.apellidoM) as nombreC"))
                  ->where('mantenimiento.Activo','=',1)->paginate(15);
                  return view('Reportes/reporteManGeneral')->with('reportes',$consulta);
             }else{
@@ -68,7 +68,7 @@ class reporteMantenimientoController extends Controller
                 $consulta = DB::table('mantenimiento')
                 ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
                 ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
-                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora, modelo"))
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora, modelo"))
                 ->where('mantenimiento.Activo','=',1)
                 ->whereNotIn('mantenimiento.id_Mantenimiento', $data)->paginate(15);
                 return view('Reportes/reporteManPen')->with('reportes',$consulta);
@@ -92,7 +92,7 @@ class reporteMantenimientoController extends Controller
                 ->Join('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
                 ->join('empleados','finMan.id_empleado','=','empleados.id_empleado')
                 ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
-                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,fechaMan,mantenimiento.id_impresora,fecha, modelo,CONCAT(empleados.nombre, ' ',empleados.apellidoP,' ',empleados.apellidoM) as nombreC, finMan.descripcion as notas"))
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora,DATE_FORMAT(fecha,'%d/%m/%Y') as fecha, modelo,CONCAT(empleados.nombre, ' ',empleados.apellidoP,' ',empleados.apellidoM) as nombreC, finMan.descripcion as notas"))
                 ->where('mantenimiento.Activo','=',1)->paginate(15);
                 return view('Reportes/reporteManFin')->with('reportes',$consulta);
             }else{
