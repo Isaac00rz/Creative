@@ -20,6 +20,7 @@ Route::get('/admin',"homeController@admin");
 Route::get('/user',"homeController@user");
 
 Route::get('/Altas/Empleados',"empleadoController@formulario");
+Route::get('/Usuarios/Mantenimiento/Calendario',"reporteMantenimientoController@futuros");
 Route::post('/Altas/Empleado/altaEmpleado',"empleadoController@store");
 
 Route::get('/Altas/Compatibilidad',"compatibilidadController@formulario");

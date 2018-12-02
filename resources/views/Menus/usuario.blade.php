@@ -30,7 +30,8 @@
 							<ul class="item">
 								<li id="pro"><a href=""><span class="icon-update"></span>Programación</a></li>
 								<li><a href=""><span class="icon-file-text-o"></span>Informe</a></li>
-								<li id="cal"><a href=""><span class="icon-calendar"></span>Calendario</a></li>
+								<li id="cal"><a href="{{ url('/Usuarios/Mantenimiento/Calendario') }}"><span class="icon-calendar"></span>Calendario</a></li>
+
 							</ul>
 				</li>
 				<li id="arc" class="submenu"><a href="#"><span class="icon-folder"></span>Archivo<span class="icon-dots-three-horizontal"></a>

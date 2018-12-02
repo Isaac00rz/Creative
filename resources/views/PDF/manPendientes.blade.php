@@ -2,8 +2,8 @@
 <head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTablaPDF.css') }}"/>
 </head>
-    <title>Reporte Mantenimiento General</title>
-    <h3 align="center">Mantenimieto General</h3>
+    <title>Reporte Mantenimiento Pendiente</title>
+    <h3 align="center">Mantenimieto Pendiente</h3>
         <table cellspacing="0">
         <tr>
                 <th>ID Mantenimiento</th>
