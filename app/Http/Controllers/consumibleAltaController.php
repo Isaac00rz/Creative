@@ -40,22 +40,22 @@ class consumibleAltaController extends Controller
 
      public function busqueda(){
         $consulta = DB::table('consumibles')// para hacer una consulta se selecciona una tabla y de almacena en una variable
-            ->select(DB::raw("nombre, descripcion, existencias, precio, costo")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
             ->where('Activo', '=', 1)// Uso del where
             ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
         return view('/Busquedas/busquedaConsumible')->with('consumibles',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
 
     }
 
-    public function eliminar($nombre){ //Eliminacion logica
+    public function eliminar($id_consumible){ //Eliminacion logica
         $update = DB::table('consumibles')// para hacer un update se selecciona la tabla
-        ->where('nombre',$nombre) // primero se da la condicion where
+        ->where('id_consumible','=',$id_consumible) // primero se da la condicion where
         ->update(['Activo' => 0]);// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
 
         return redirect('/BajaMod/Consumibles');
     }
 
-    public function editar($nombre){
+    public function editar($id_consumible){
         if(Auth::check()){//Si hay una sesion iniciada
             $id = Auth::id();
             $rol = '';
@@ -65,9 +65,9 @@ class consumibleAltaController extends Controller
             }
             if($rol=='Administrador'){ 
                 $consulta = DB::table('consumibles')
-                    ->select('nombre','descripcion','existencias','precio','costo')
+                    ->select('id_consumible','nombre','descripcion','existencias','precio','costo')
                     ->where('Activo','=',1)
-                    ->where('nombre','=',$nombre)->get();
+                    ->where('id_consumible','=',$id_consumible)->get();
                  return view('/Modificaciones/consumibleMod')->with('consumibles',$consulta);
             }else{
                 return redirect('/home');// Si no es un usuario administrador se regresa al home
@@ -78,18 +78,16 @@ class consumibleAltaController extends Controller
        
     }
 
-     public function editarComsumible(Request $request){
-
+     public function editarConsumible(Request $request){
         $nombre = $request->input('nombre'); // Se asigna a una variable el valor del request que tenga el identificador nombre
-        $descripcion = $request-> input('descripcion');
-        $existencias = $request->input('existencias');
-        $precio = $request->input('precio');
-        $costo = $request->input('costo');
-        $id = 1;
-        $id_sucursal = 1;
+        $descripcion = $request-> input('Descripcion');
+        $existencias = $request->input('Existencias');
+        $precio = $request->input('Precio');
+        $costo = $request->input('Costo');
+        $id_consumible = $request->input('id_consumible');
 
         $consulta = DB::table('consumibles')
-        ->where('nombre','=',$nombre)
+        ->where('id_consumible','=',$id_consumible)
         ->update(['nombre' => $nombre,'descripcion' => $descripcion,'existencias' => $existencias,'precio' => $precio,'costo' => $costo]);
         
         return redirect('/BajaMod/Consumibles');
