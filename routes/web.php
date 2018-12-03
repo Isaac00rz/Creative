@@ -62,7 +62,7 @@ Route::post('/editarConsumible',"consumibleAltaController@editarConsumible");
 Route::get('/BajaMod/Impresoras',"impresoraAltaController@busqueda");
 Route::get('/Impresora/editar/{modelo}',"impresoraAltaController@editar");
 Route::get('/Impresora/eliminar/{modelo}',"impresoraAltaController@eliminar");
-Route::post('/Impresora/editar/formulario/editar',"impresoraAltaController@editarImpresora");
+Route::post('/editarImpresora',"impresoraAltaController@editarImpresora");
 
 
 Route::get('/Reportes/reporteInventrio', "reporteInventarioController@index"); 
