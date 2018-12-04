@@ -78,7 +78,15 @@ Route::get('/Reportes/Mantenimiento/General/pdf', "mantenimientosPDFController@g
 Route::get('/Reportes/Mantenimiento/Pendientes', "reporteMantenimientoController@pendientes"); 
 Route::get('/Reportes/Mantenimiento/Pendientes/pdf', "mantenimientosPDFController@faltantesPDF"); 
 Route::get('/Reportes/Mantenimiento/Finalizado', "reporteMantenimientoController@finalizado"); 
-Route::get('/Reportes/Mantenimiento/Finalizado/pdf', "mantenimientosPDFController@finalizadosPDF"); 
+Route::get('/Reportes/Mantenimiento/Finalizado/pdf', "mantenimientosPDFController@finalizadosPDF");
+
+
+Route::resource('/usuario/events',"EventController");
+Route::get('/usuario/addeventurl',"EventController@display");
+Route::get('/usuario/displaydata',"EventController@show");
+Route::get('/usuario/deleteEventsurl',"EventController@show");
+
+
 
 Route::get('logout',function(){
     Auth::logout();
