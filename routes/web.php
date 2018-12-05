@@ -87,6 +87,13 @@ Route::get('/usuario/displaydata',"EventController@show");
 Route::get('/usuario/deleteEventsurl',"EventController@show");
 
 
+Route::get('/usuario/mantenimiento',"MantenimientoController@formulario");
+
+Route::get('/BajaMod/Mantenimiento',"MantenimientoController@busqueda");
+Route::get('/mantenimiento/editar/{id_mantenimiento}',"MantenimientoController@editar");
+Route::get('/mantenimiento/eliminar/{id_mantenimiento}',"MantenimientoController@eliminar");
+Route::post('/editarMantenimiento',"MantenimientoController@editarMantenimiento");
+
 
 Route::get('logout',function(){
     Auth::logout();
