@@ -31,7 +31,7 @@
  <button class="boton" onclick="location.href='{{ url('/usuario/deleteEventsurl') }}'">eliminar eventos</button>
 
 </div>
-<br>
+<!-- <br>
 		<div class="row">
 
 			@if(count($errors)>0)
@@ -63,7 +63,7 @@
 		</div>
 	    </div>
 	</div>						
-</div>
+</div> -->
 </section>
 </body>	
 </html>
