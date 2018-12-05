@@ -31,6 +31,7 @@
 						<li id="pro"><a href="{{ url('/Busqueda/Avanzada/Impresoras') }}"><span class="icon-printer"></span>Busqueda Impresoras</a></li>
 						<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Clientes') }}"><span class="icon-user-tie"></span>Busqueda Clientes</a></li>
 						<li><a href="{{ url('/Busqueda/Avanzada/Compatibilidad') }}"><span class="icon-wrench"></span>Compatibilidad</a></li>
+						<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 				</ul>
 				</li>
 				
