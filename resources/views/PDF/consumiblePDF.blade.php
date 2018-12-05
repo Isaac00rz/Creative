@@ -1,18 +1,8 @@
-@include('Menus.admin')
+<html>
+<head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
-<link rel = "stylesheet" href = "{{ asset('css/botones.css') }}">
-<link rel = "stylesheet" href = "{{ asset('css/FormularioBusqueda.css') }}">
-<section class="contenido">
     <title>Busqueda Consumibles</title>
     <h3 align="center">Busqueda de Consumibles</h3>
-    <form id = "Busqueda" role="form" method="post" action="{{ url('/Consumible/buscarNombre') }}">
-{!! csrf_field() !!}
-<legend>Busqueda</legend>
-<p>
-    <label for ="nombre">Nombre Consumible:</label> 
-	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
-</p>
-</form>
     <div id="tabla">
         <table cellspacing="0">
             <tr>
@@ -35,7 +25,4 @@
             @endforeach
         </table>
     </div>
-    {{ $consumibles->links() }}
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Consumibles/pdf',$parametro) }}'">Generar PDF</button>
-
-</section>
+</html>

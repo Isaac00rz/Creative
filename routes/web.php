@@ -95,6 +95,7 @@ Route::get('/Reportes/Mantenimiento/Finalizado/pdf', "mantenimientosPDFControlle
 
 Route::get('/Busqueda/Avanzada/Consumibles', "consumibleAltaController@busquedaA");
 Route::post('/Consumible/buscarNombre', "consumibleAltaController@busquedaNombre");
+Route::get('/Reportes/Consumibles/pdf/{parametro}', "consumibleAltaController@pdf");
 
 Route::resource('/usuario/events',"EventController");
 Route::get('/usuario/addeventurl',"EventController@display");
