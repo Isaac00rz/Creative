@@ -1,7 +1,7 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
 
-<title>Editars Cliente</title>
+<title>Editar Cliente</title>
 <section class="contenido">
 <form role="form" name="form" method="post" action="{{ url('/editarCliente') }}">
 {{csrf_field()}}

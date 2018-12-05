@@ -47,7 +47,7 @@ class compatibilidadController extends Controller
             }
             
             if($contador == $numero){
-                return redirect('/Altas/Clientes');
+                return redirect('/Altas/Compatibilidad');
                 }else{
                     return("Error al insertar los datos");
             }

@@ -61,7 +61,7 @@ class reporteMantenimientoController extends Controller
             if($rol=='Administrador'){ 
                 $ids = DB::table('FinMan')
                 ->select('id_mantenimiento')->get();
-
+                $data[] = 0;
                 foreach($ids as $id){
                     $data[] = $id->id_mantenimiento;
                 }
@@ -117,11 +117,14 @@ class reporteMantenimientoController extends Controller
                 $fechaAc = date("d/m/Y", strtotime($fechaA));
                 $ids = DB::table('FinMan')
                 ->select('id_mantenimiento')->get();
-
+                $data[] = 0;
                 foreach($ids as $id){
                     $data[] = $id->id_mantenimiento;
                 }
 
+                if($data==null){
+                    $data[] = 0;
+                }
                 $consulta = DB::table('mantenimiento')
                 ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
                 ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')

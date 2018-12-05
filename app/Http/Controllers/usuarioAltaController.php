@@ -51,4 +51,88 @@ class usuarioAltaController extends Controller
                     return("Error al insertar los datos");// solo diria no en caso contrario
             }
     }
+
+    public function busqueda(){
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
+        $consulta = DB::table('users')// para hacer una consulta se selecciona una tabla y de almacena en una variable
+            ->select(DB::raw("id,name,username,email")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
+        return view('/Busquedas/busquedaUsuario')->with('users',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre empleados y los valores de $consulta
+            }else{
+                return redirect('/user');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('login');// Si no hay sesion iniciada se redirige al login
+        }
+
+    }
+    
+    public function editar($id_usuario){
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('users')
+                    ->select('id','name','username','email')
+                    ->where('id','=',$id_usuario)->get();
+                 return view('/Modificaciones/usuarioMod')->with('user',$consulta);
+            }else{
+                return redirect('/user');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('login');// Si no hay sesion iniciada se redirige al login
+        }
+       
+    }
+
+    public function eliminar($id_usuario){ //Eliminacion logica
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $delete1 = DB::table('roles')// para hacer un update se selecciona la tabla
+                ->where('id','=',$id_usuario)// primero se da la condicion where
+                ->delete();
+
+                $delete1 = DB::table('users')// para hacer un update se selecciona la tabla
+                ->where('id','=',$id_usuario)// primero se da la condicion where
+                ->delete();
+
+                return redirect('/BajaMod/Usuarios');
+            }else{
+                return redirect('/user');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('login');// Si no hay sesion iniciada se redirige al login
+        }
+        
+    }
+
+    public function editarUsuario(Request $request){
+        $id = $request->input('idV');
+        $name = $request->input('name'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+        $username=$request->input('username');
+        $email=$request->input('email');
+
+        $consulta = DB::table('users')
+        ->where('id','=',$id)
+        ->update(['id' => $id,'name' => $name,'username' => $username,'email' => $email]);
+        
+        return redirect('/BajaMod/Usuarios');
+    }
 }

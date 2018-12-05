@@ -23,6 +23,9 @@ Route::get('/Altas/Empleados',"empleadoController@formulario");
 Route::get('/Usuarios/Mantenimiento/Calendario',"reporteMantenimientoController@futuros");
 Route::post('/Altas/Empleado/altaEmpleado',"empleadoController@store");
 
+Route::get('/Altas/FinMantenimiento',"finManController@formulario");
+Route::post('/Altas/altaFinMan',"finManController@store");
+
 Route::get('/Altas/Compatibilidad',"compatibilidadController@formulario");
 Route::post('/Altas/altaCompatibilidad',"compatibilidadController@store");
 
@@ -70,6 +73,16 @@ Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
 Route::get('/Reportes/reporteInventrio/Impresoras', "reporteInventarioController@index2"); 
 Route::get('/dynamic_pdf2/pdf2',"reporteInventarioController@pdf2");
 
+Route::get('/BajaMod/Empleados',"empleadoController@busqueda");
+Route::get('/Empleado/editar/{id_empleado}',"empleadoController@editar");
+Route::get('/Empleado/eliminar/{id_empleado}',"empleadoController@eliminar");
+Route::post('/editarEmpleado',"empleadoController@editarEmpleado");
+
+Route::get('/BajaMod/Usuarios',"usuarioAltaController@busqueda");
+Route::get('/Usuario/editar/{id}',"usuarioAltaController@editar");
+Route::get('/Usuario/eliminar/{id}',"usuarioAltaController@eliminar");
+Route::post('/editarUsuario',"usuarioAltaController@editarUsuario");
+
 
 
 Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opciones"); 
@@ -80,6 +93,8 @@ Route::get('/Reportes/Mantenimiento/Pendientes/pdf', "mantenimientosPDFControlle
 Route::get('/Reportes/Mantenimiento/Finalizado', "reporteMantenimientoController@finalizado"); 
 Route::get('/Reportes/Mantenimiento/Finalizado/pdf', "mantenimientosPDFController@finalizadosPDF");
 
+Route::get('/Busqueda/Avanzada/Consumibles', "consumibleAltaController@busquedaA");
+Route::post('/Consumible/buscarNombre', "consumibleAltaController@busquedaNombre");
 
 Route::resource('/usuario/events',"EventController");
 Route::get('/usuario/addeventurl',"EventController@display");

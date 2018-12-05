@@ -1,0 +1,33 @@
+
+#Busqueda p{
+    line-height: 25px;
+    color: rgba(3, 3, 3, 0.9);
+    font-size: 25px;
+}
+
+#Busqueda label{
+    font-size: 25px;
+    color: rgba(3, 3, 3, 0.9);
+}
+
+#Busqueda  hr {
+	background:rgb(0, 0, 0);
+	height:3px;
+	border:none;
+}
+#Busqueda legend {
+    font-size: 30px;
+    color: rgba(3, 3, 3, 0.9);
+    font-style: italic;
+}
+
+#Busqueda input{
+    font-size: 15px;
+    color: rgba(3, 3, 3, 0.9);
+}
+
+#Busqueda .boton > input{
+    font-size: 20px;
+    color: rgba(3, 3, 3, 0.9);
+    text-align:center;
+}

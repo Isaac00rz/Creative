@@ -20,11 +20,17 @@
 
 		<div class="menu_bar">
 			<a href="#" class="bt-menu"><span class="icon-menu"></span> <span class="icon-close" style="display: none"></span>Menu</a>
+			
 		</div>
  
 		<nav>
 			<ul class="menu">
-				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a>
+				<ul class="item">
+						<li><a href="{{ url('/Busqueda/Avanzada/Consumibles') }}"><span class="icon-droplet"></span>Busqueda Consumibles</a></li>
+				</ul>
+				</li>
+				
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-up"></span>Altas <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href="{{ url('/Altas/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
@@ -40,9 +46,10 @@
 							<ul class="item">
 								<li id="pro"><a href="{{ url('/BajaMod/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
 								<li><a href="{{ url('/BajaMod/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
-								<li id="cal"><a href=""><span class="icon-group"></span>Usuarios</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Usuarios') }}"><span class="icon-group"></span>Usuarios</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-file-text-o"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>
