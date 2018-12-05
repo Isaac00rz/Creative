@@ -19,7 +19,7 @@ class consumibleAltaController extends Controller
         $existencias = $request->input('existencias');
         $precio = $request->input('precio');
         $costo = $request->input('costo');
-        $id = 1; // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
+        $id = Auth::id(); // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
         $id_sucursal = 1;// Lo mimo de arriba
 
         $numero = count($nombre);

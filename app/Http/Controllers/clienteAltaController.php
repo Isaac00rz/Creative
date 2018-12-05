@@ -36,7 +36,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         $array_celular = $request->input('celular');
         $array_telFijo = $request->input('telFijo');
         $array_email = $request->input('correo');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $numero = count($array_nombre);
@@ -123,7 +123,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         $celular = $request->input('celular');
         $telFijo = $request->input('telFijo');
         $email = $request->input('correo');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $consulta = DB::table('clientes')

@@ -19,7 +19,7 @@ class sucursalAltaController extends Controller
         $array_cp = $request->input('CP');
         $array_telefono = $request->input('Telefono');
         $array_email = $request->input('Correo');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $numero = count($array_nombre);

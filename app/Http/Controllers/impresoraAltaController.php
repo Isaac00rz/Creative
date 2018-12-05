@@ -23,7 +23,7 @@ class impresoraAltaController extends Controller
         $array_costo = $request->input('costo');
         $array_pRenta = $request->input('pRenta');
         $array_fCompra = $request->input('fCompra');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $numero = count($array_modelo);

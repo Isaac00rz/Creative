@@ -35,7 +35,7 @@ class proveedorAltaController extends Controller
         $array_telFijo = $request->input('telFijo');
         $array_email = $request->input('correo');
         $array_descripcion = $request->input('descripcion');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $numero = count($array_nombre);
@@ -120,7 +120,7 @@ class proveedorAltaController extends Controller
         $telFijo = $request->input('telFijo');
         $email = $request->input('correo');
         $descripcion = $request->input('descripcion');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $consulta = DB::table('provedores')

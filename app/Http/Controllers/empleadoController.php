@@ -122,7 +122,7 @@ class empleadoController extends Controller
         $celular = $request->input('Telefono');
         $telFijo = $request->input('TelefonoFijo');
         $email = $request->input('correo');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $consulta = DB::table('Empleados')
