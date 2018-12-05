@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class consumibleAltaController extends Controller
 {
@@ -126,6 +127,34 @@ class consumibleAltaController extends Controller
                 ->paginate(15);
         $ultimo = $nombre;
         return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
+    }
+
+    public function pdf($parametro){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
+                if($parametro=="ninguno"){
+                    $parametro="";
+                } 
+                $consulta = DB::table('consumibles')
+                ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
+                ->where('Activo', '=', 1)
+                ->where('nombre','like','%'.$parametro.'%')
+                ->get();
+                $pdf = PDF::loadView('PDF/consumiblePDF', ['consumibles' => $consulta]);
+                return $pdf->stream('result.pdf');
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+        
     }
 
 }
