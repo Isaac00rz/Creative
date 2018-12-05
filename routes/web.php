@@ -23,6 +23,9 @@ Route::get('/Altas/Empleados',"empleadoController@formulario");
 Route::get('/Usuarios/Mantenimiento/Calendario',"reporteMantenimientoController@futuros");
 Route::post('/Altas/Empleado/altaEmpleado',"empleadoController@store");
 
+Route::get('/Altas/FinMantenimiento',"finManController@formulario");
+Route::post('/Altas/altaFinMan',"finManController@store");
+
 Route::get('/Altas/Compatibilidad',"compatibilidadController@formulario");
 Route::post('/Altas/altaCompatibilidad',"compatibilidadController@store");
 

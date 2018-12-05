@@ -61,7 +61,7 @@ class reporteMantenimientoController extends Controller
             if($rol=='Administrador'){ 
                 $ids = DB::table('FinMan')
                 ->select('id_mantenimiento')->get();
-
+                $data[] = 0;
                 foreach($ids as $id){
                     $data[] = $id->id_mantenimiento;
                 }

@@ -29,8 +29,8 @@
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 								<li id="pro"><a href="{{ url('/usuario/events') }}"><span class="icon-update"></span>Programación</a></li>
-								<li><a href=""><span class="icon-file-text-o"></span>Informe</a></li>
-								<li id="cal"><a href="{{ url('/Usuarios/Mantenimiento/Calendario') }}"><span class="icon-calendar"></span>Calendario</a></li>
+								<li><a href="{{ url('/Altas/FinMantenimiento') }}"><span class="icon-file-text-o"></span>Reporte de finalizado</a></li>
+								<li id="cal"><a href="{{ url('/Usuarios/Mantenimiento/Calendario') }}"><span class="icon-calendar"></span>Pendientes</a></li>
 
 							</ul>
 				</li>
