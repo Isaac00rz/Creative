@@ -101,6 +101,10 @@ Route::get('/Busqueda/Avanzada/Impresoras', "impresoraAltaController@busquedaA")
 Route::post('/Impresoras/buscarModelo', "impresoraAltaController@busquedaNombre");
 Route::get('/Reportes/Impresoras/pdf/{parametro}', "impresoraAltaController@pdf");
 
+Route::get('/Busqueda/Avanzada/Clientes', "clienteAltaController@busquedaA");
+Route::post('/Clientes/buscarNombre', "clienteAltaController@busquedaNombre");
+Route::get('/Reportes/Clientes/pdf/{parametro}', "clienteAltaController@pdf");
+
 Route::resource('/usuario/events',"EventController");
 Route::get('/usuario/addeventurl',"EventController@display");
 Route::get('/usuario/displaydata',"EventController@show");

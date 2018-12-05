@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class clienteAltaController extends Controller
 {
@@ -131,5 +132,67 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
         'cp'=>$cp,'TelefonoPersonal' => $celular,'telefonoFijo'=>$telFijo,'correo'=>$email]);
         
         return redirect('/BajaMod/Clientes');
+    }
+    public function busquedaA(){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('clientes')
+            ->select(DB::raw("rfc, nombre as nombreC, cp, direccion, correo, telefonoPersonal,telefonoFijo")) 
+            ->where('Activo', '=', 1)
+            ->paginate(10);
+            $ultimo = 'ninguno';    
+            return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo);
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    }
+
+    public function busquedaNombre(Request $request){
+        $nombre = $request->input('nombre'); 
+
+                $consulta = DB::table('clientes')
+                ->select(DB::raw("rfc, nombre as nombreC, cp, direccion, correo, telefonoPersonal,telefonoFijo")) 
+                ->where('Activo', '=', 1)
+                ->where('nombre','like','%'.$nombre.'%')
+                ->paginate(10);
+        $ultimo = $nombre;
+        return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo);
+    }
+
+    public function pdf($parametro){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
+                if($parametro=="ninguno"){
+                    $parametro="";
+                } 
+                $consulta = DB::table('clientes')
+                ->select(DB::raw("rfc, nombre as nombreC, cp, direccion, correo, telefonoPersonal,telefonoFijo")) 
+                ->where('Activo', '=', 1)
+                ->where('nombre','like','%'.$parametro.'%')
+                ->get();
+                $pdf = PDF::loadView('PDF/clientesPDF', ['clientes' => $consulta]);
+                return $pdf->stream('result.pdf');
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+        
     }
 }
