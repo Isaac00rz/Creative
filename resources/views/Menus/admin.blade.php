@@ -28,6 +28,7 @@
 				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a>
 				<ul class="item">
 						<li><a href="{{ url('/Busqueda/Avanzada/Consumibles') }}"><span class="icon-droplet"></span>Busqueda Consumibles</a></li>
+						<li id="pro"><a href="{{ url('/Busqueda/Avanzada/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
 				</ul>
 				</li>
 				
