@@ -105,6 +105,10 @@ Route::get('/Busqueda/Avanzada/Clientes', "clienteAltaController@busquedaA");
 Route::post('/Clientes/buscarNombre', "clienteAltaController@busquedaNombre");
 Route::get('/Reportes/Clientes/pdf/{parametro}', "clienteAltaController@pdf");
 
+Route::get('/Busqueda/Avanzada/Compatibilidad', "compatibilidadController@busquedaA");
+Route::post('/Compatibilidad/buscarConsumible', "compatibilidadController@busquedaNombre");
+Route::get('/Reportes/Compatibilidad/pdf/{parametro}', "compatibilidadController@pdf");
+
 Route::resource('/usuario/events',"EventController");
 Route::get('/usuario/addeventurl',"EventController@display");
 Route::get('/usuario/displaydata',"EventController@show");
