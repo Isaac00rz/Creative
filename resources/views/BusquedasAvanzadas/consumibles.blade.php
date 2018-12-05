@@ -36,5 +36,6 @@
         </table>
     </div>
     {{ $consumibles->links() }}
+    <button class="boton" onclick="location.href='{{ url('/Reportes/Mantenimiento/General/pdf') }}'">Generar PDF</button>
 
 </section>

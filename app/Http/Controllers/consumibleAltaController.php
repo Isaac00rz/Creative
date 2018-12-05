@@ -106,7 +106,8 @@ class consumibleAltaController extends Controller
                 ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
                 ->where('Activo', '=', 1)
                 ->paginate(15);
-            return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta);
+            $ultimo = 'ninguno';    
+            return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
             }else{
                 return redirect('/home');// Si no es un usuario administrador se regresa al home
             }
@@ -123,8 +124,8 @@ class consumibleAltaController extends Controller
                 ->where('Activo', '=', 1)
                 ->where('nombre','like','%'.$nombre.'%')
                 ->paginate(15);
-        
-        return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta);
+        $ultimo = $nombre;
+        return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
     }
 
 }
