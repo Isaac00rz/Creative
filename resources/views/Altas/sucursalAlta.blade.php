@@ -1,6 +1,6 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
-<title>Alta De La Sucursal</title>
+<title>Alta Sucursal</title>
 <section class="contenido">
 <form role="form" name="form" method="post" action="{{ url('/Altas/Sucursal/altaSucursal') }}">
 {!! csrf_field() !!}
@@ -19,7 +19,7 @@
                 <td class="tds"><input class="inputs" type="text" name="Direccion[]" maxlength="30" placeholder="dirección" required></td>
                 <td class="tds"><input class="inputs" type="text" name="Colonia[]" maxlength="25" placeholder="colonia" required></td>
                 <td class="tds"><input class="inputs" type="number" name="CP[]" min="1" placeholder="CP" required></td>
-                <
+                
                 <td class="tds"><input class="inputs" type="tel" name="Telefono[]" placeholder="4774567890" pattern="[0-9]{10}" required></td>
                 <td class="tds"><input class="inputs" type="email" name="Correo[]" maxlength = "35" placeholder="e-mail" required></td>
                 <td class="tds"><input class="inputs" type="reset" class="noEliminar" value="Eliminar" /></td>

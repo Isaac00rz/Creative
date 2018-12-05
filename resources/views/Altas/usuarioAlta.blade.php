@@ -13,7 +13,7 @@
 <div class="renglon">
     <label for="name" class="etiqueta"><b>Nombre</b></label>
     <div class="input">
-        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" maxlength="15" required autofocus>
+        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" maxlength="15" required autofocus placeholder="nombre">
     </div>
 </div>
 
@@ -21,7 +21,7 @@
     <label for="username" class="etiqueta"><b>Nombre de usuario</b></label>
 
     <div class="input">
-        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required maxlength="15">
+        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required maxlength="15" placeholder="nombre de usuario">
 
         @if ($errors->has('username'))
         <br>
@@ -42,7 +42,7 @@
     <label for="email" class="etiqueta"><b>Correo electrónico</b></label>
 
     <div class="input">
-        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" maxlength="40" required>
+        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" maxlength="40" required placeholder="correo electrónico">
 
         @if ($errors->has('email'))
         <br>
@@ -55,7 +55,7 @@
     <label for="password" class="etiqueta"><b>Contraseña</b></label>
 
     <div class="input">
-        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="contraseña">
 
         @if ($errors->has('password'))
         <br>
@@ -68,7 +68,7 @@
      <label for="password-confirm" class="etiqueta"><b>Confirmar contraseña</b></label>
 
     <div class="input">
-    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="confirmar contraseña">
     </div>
 </div>
 <br>

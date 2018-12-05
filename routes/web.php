@@ -70,6 +70,16 @@ Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
 Route::get('/Reportes/reporteInventrio/Impresoras', "reporteInventarioController@index2"); 
 Route::get('/dynamic_pdf2/pdf2',"reporteInventarioController@pdf2");
 
+Route::get('/BajaMod/Empleados',"empleadoController@busqueda");
+Route::get('/Empleado/editar/{id_empleado}',"empleadoController@editar");
+Route::get('/Empleado/eliminar/{id_empleado}',"empleadoController@eliminar");
+Route::post('/editarEmpleado',"empleadoController@editarEmpleado");
+
+Route::get('/BajaMod/Usuarios',"usuarioAltaController@busqueda");
+Route::get('/Usuario/editar/{id}',"usuarioAltaController@editar");
+Route::get('/Usuario/eliminar/{id}',"usuarioAltaController@eliminar");
+Route::post('/editarUsuario',"usuarioAltaController@editarUsuario");
+
 
 
 Route::get('/Reportes/reporteMantenimiento', "reporteMantenimientoController@opciones"); 

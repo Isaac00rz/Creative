@@ -1,8 +1,9 @@
 ﻿#tabla {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size:16px;
-    text-align: right;
     width: 75%;
+    margin-right: auto;
+    margin-left: auto;
     
 }
 

@@ -1,7 +1,7 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
 
-<title>Alta Del Cliente</title>
+<title>Alta Cliente</title>
 <section class="contenido">
 <form role="form" name="form" method="post" action="{{ url('/Altas/Clientes/altaCliente') }}">
 {!! csrf_field() !!}
