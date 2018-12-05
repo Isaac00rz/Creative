@@ -93,5 +93,38 @@ class consumibleAltaController extends Controller
         return redirect('/BajaMod/Consumibles');
     }
 
+    public function busquedaA(){
+        if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('consumibles')
+                ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
+                ->where('Activo', '=', 1)
+                ->paginate(15);
+            return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta);
+            }else{
+                return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
+    }
+
+    public function busquedaNombre(Request $request){
+        $nombre = $request->input('nombre'); 
+
+        $consulta = DB::table('consumibles')
+                ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
+                ->where('Activo', '=', 1)
+                ->where('nombre','like','%'.$nombre.'%')
+                ->paginate(15);
+        
+        return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta);
+    }
 
 }
