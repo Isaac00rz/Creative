@@ -27,8 +27,8 @@
         <td>{{$impresora->precioRenta}}</td>
         <td>{{$impresora->FechaCompra}}</td>
 		<td>
-			<a href="{{ URL('/Impresora/editar',$impresora->modelo) }}">Editar</a>
-			<a href="{{ URL('/Impresora/eliminar',$impresora->modelo) }}">Eliminar</a>
+			<a href="{{ URL('/Impresora/editar',$impresora->id_impresora) }}">Editar</a>
+			<a href="{{ URL('/Impresora/eliminar',$impresora->id_impresora) }}">Eliminar</a>
 		</td>
 		</tr>
 	@endforeach

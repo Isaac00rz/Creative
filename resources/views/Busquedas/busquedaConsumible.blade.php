@@ -23,8 +23,8 @@
 		<td>{{$consumible->precio}}</td>
         <td>{{$consumible->costo}}</td>
 		<td>
-			<a href="{{ URL('/Consumible/editar',$consumible->nombre) }}">Editar</a>
-			<a href="{{ URL('/Consumible/eliminar',$consumible->nombre) }}">Eliminar</a>
+			<a href="{{ URL('/Consumible/editar',$consumible->id_consumible) }}">Editar</a>
+			<a href="{{ URL('/Consumible/eliminar',$consumible->id_consumible) }}">Eliminar</a>
 		</td>
 		</tr>
 	@endforeach
