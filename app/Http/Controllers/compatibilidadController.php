@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class compatibilidadController extends Controller
 {
@@ -51,5 +52,72 @@ class compatibilidadController extends Controller
                 }else{
                     return("Error al insertar los datos");
             }
+    }
+
+    public function busquedaA(){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('impresoras')
+                ->select(DB::raw("id_impresora , CONCAT(id_impresora,' ',modelo,'-',marca) as nombre"))
+                ->where('Activo','=','1')->get();
+            $ultimo = 'ninguno';    
+            return view('/BusquedasAvanzadas/compatibilidad')->with('impresoras',$consulta)->with('parametro',$ultimo);
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    }
+
+    public function busquedaNombre(Request $request){
+        $id_impresora = $request->input('id_impresora'); 
+
+                $consulta = DB::table('consumibles')
+                ->join('compatibilidad','compatibilidad.id_consumible','=','consumibles.id_consumible')
+                ->select(DB::raw("consumibles.id_consumible,nombre, descripcion, existencias, precio, costo")) 
+                ->where('Activo', '=', 1)
+                ->where('id_impresora','=',$id_impresora)
+                ->paginate(10);
+                $consulta2 = DB::table('impresoras')
+                ->select(DB::raw("id_impresora , CONCAT(id_impresora,' ',modelo,'-',marca) as nombre"))
+                ->where('Activo','=','1')->get();
+        $ultimo = $id_impresora;
+        return view('/BusquedasAvanzadas/compatibilidadConsumible')->with('consumibles',$consulta)->with('parametro',$ultimo)->with('impresoras',$consulta2);
+    }
+
+    public function pdf($parametro){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
+                if($parametro=="ninguno"){
+                    $parametro="";
+                } 
+                $consulta = DB::table('consumibles')
+                ->join('compatibilidad','compatibilidad.id_consumible','=','consumibles.id_consumible')
+                ->select(DB::raw("consumibles.id_consumible,nombre, descripcion, existencias, precio, costo")) 
+                ->where('Activo', '=', 1)
+                ->where('id_impresora','=',$parametro)
+                ->get();
+                $pdf = PDF::loadView('PDF/compatibilidadConsumible', ['consumibles' => $consulta,'parametro'=>$parametro]);
+                return $pdf->stream('result.pdf');
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+        
     }
 }

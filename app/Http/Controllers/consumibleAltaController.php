@@ -19,7 +19,7 @@ class consumibleAltaController extends Controller
         $existencias = $request->input('existencias');
         $precio = $request->input('precio');
         $costo = $request->input('costo');
-        $id = 1; // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
+        $id = Auth::id(); // El id del usuario por ahora lo ponde en 1, hasta que hagamos la funcioanlidad del login
         $id_sucursal = 1;// Lo mimo de arriba
 
         $numero = count($nombre);
@@ -95,7 +95,7 @@ class consumibleAltaController extends Controller
     }
 
     public function busquedaA(){
-        if(Auth::check()){//Si hay una sesion iniciada
+        if(Auth::check()){
             $id = Auth::id();
             $rol = '';
             $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
@@ -110,10 +110,10 @@ class consumibleAltaController extends Controller
             $ultimo = 'ninguno';    
             return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
             }else{
-                return redirect('/home');// Si no es un usuario administrador se regresa al home
+                return redirect('/home');
             }
         }else{
-            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+            return redirect('/home');
         }
     }
 

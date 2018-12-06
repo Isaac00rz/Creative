@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class impresoraAltaController extends Controller
 {
@@ -22,7 +23,7 @@ class impresoraAltaController extends Controller
         $array_costo = $request->input('costo');
         $array_pRenta = $request->input('pRenta');
         $array_fCompra = $request->input('fCompra');
-        $id = 1;
+        $id = Auth::id();
         $id_sucursal = 1;
 
         $numero = count($array_modelo);
@@ -99,6 +100,69 @@ class impresoraAltaController extends Controller
         ->update(['modelo'=>$modelo,'marca' => $marca,'existencias' => $existencias,'precio' => $precio,'costo' => $costo,'precioRenta'=>$preciorenta,'FechaCompra'=> $fCompra]);
         
         return redirect('/BajaMod/Impresoras');
+    }
+
+    public function busquedaA(){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
+                $consulta = DB::table('impresoras')
+            ->select(DB::raw("id_impresora,modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) 
+            ->where('Activo', '=', 1)
+            ->paginate(10);
+            $ultimo = 'ninguno';    
+            return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo);
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    }
+
+    public function busquedaNombre(Request $request){
+        $nombre = $request->input('nombre'); 
+
+                $consulta = DB::table('impresoras')
+                ->select(DB::raw("id_impresora,modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) 
+                ->where('Activo', '=', 1)
+                ->where('modelo','like','%'.$nombre.'%')
+                ->paginate(10);
+        $ultimo = $nombre;
+        return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo);
+    }
+
+    public function pdf($parametro){
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
+                if($parametro=="ninguno"){
+                    $parametro="";
+                } 
+                $consulta = DB::table('impresoras')
+                ->select(DB::raw("id_impresora,modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) 
+                ->where('Activo', '=', 1)
+                ->where('modelo','like','%'.$parametro.'%')
+                ->get();
+                $pdf = PDF::loadView('PDF/impresoraPDF', ['impresoras' => $consulta]);
+                return $pdf->stream('result.pdf');
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+        
     }
 
 
