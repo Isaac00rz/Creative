@@ -18,10 +18,11 @@
 
                 <td><input  type="date" name="fechaMan" maxlength = "50"  value = "{{$i->fechaMan}}" required></td>
                 
-                 <td><input  type="number" name="id_impresora" maxlength = "10"  value = "{{$i->id_impresora}}" required></td>
+                <td> <input type="number" name="id_impresora[]" maxlength="30" placeholder="id_impresora" value="{{$i->id_impresora}}" required></td>
+            
 
 
-                <td><input  type = "hidden" name="id_impresora" value = "{{$i->id_mantenimiento}}" required></td>
+                <td><input  type = "hidden" name="id_mantenimiento" value = "{{$i->id_mantenimiento}}" required></td>
                 
             </tr>
             @endforeach

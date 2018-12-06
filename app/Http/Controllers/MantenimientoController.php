@@ -9,30 +9,41 @@ use Illuminate\Support\Facades\Auth;
 class MantenimientoController extends Controller
 {
     public function formulario(){
-        
-                return view('/usuario/mantenimiento');
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
             }
-           
+            if($rol=='Usuario'){ 
+                 return view('/Altas/mantenimiento');
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    } 
 
-    public function store(Request $request){ //Request nos sirbe para capturar los datos enviados por post desde la vista
-        $array_descripcion = $request->input('descripcion'); // Se asigna a una variable el valor del request que tenga el identificador nombre
+    public function store(Request $request){ 
+        $array_descripcion = $request->input('descripcion'); 
         $array_fechaMan = $request->input('fechaMan');
         $array_id_impresora = $request->input('id_impresora');
-        $id = 1;
+        $id = Auth::id();
        
-
         $numero = count($array_descripcion);
         $contador=0;
 
-            foreach($array_descripcion as $i=>$t) {//for para todas las filas de la tabla
-                $consulta = DB::table('mantenimiento')// Para insertar, se declara una variable y se iguala a DD::table donde pondremos el nombre de la tabla
+            foreach($array_descripcion as $i=>$t) {
+                $consulta = DB::table('mantenimiento')
                 ->insert(['descripcion'=> $array_descripcion[$i],'fechaMan'=> $array_fechaMan[$i],'id_impresora' => $array_id_impresora,
-                'id'=>$id]); //El ->insert tiene la estructura ->insert(['nombreColumna'=> valor,'nombreColumna'=>valor]);
+                'id'=>$id]); 
                 $contador++;
             }
             
             if($contador == $numero){// Si se ejecutaron todas las consultas
-                return redirect('/usuario/mantenimiento');// en aso de que si se redirecciona a una direccion(no es una vista)
+                return redirect('/Altas/mantenimiento');// en aso de que si se redirecciona a una direccion(no es una vista)
                 }else{
                     return("Error al insertar los datos");// solo diria no en caso contrario
             }

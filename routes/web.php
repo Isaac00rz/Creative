@@ -103,7 +103,7 @@ Route::get('/usuario/displaydata',"EventController@show");
 Route::get('/usuario/deleteEventsurl',"EventController@show");
 
 
-Route::get('/usuario/mantenimiento',"MantenimientoController@formulario");
+Route::get('/Altas/mantenimiento',"MantenimientoController@formulario");
 
 Route::get('/BajaMod/Mantenimiento',"MantenimientoController@busqueda");
 Route::get('/mantenimiento/editar/{id_mantenimiento}',"MantenimientoController@editar");

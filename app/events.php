@@ -8,4 +8,5 @@ class events extends Model
 {
     protected $table ='events';
     protected $fillable = ['title','color','FechaInicio','FechaFin'];
+ 
 }

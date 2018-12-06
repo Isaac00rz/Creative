@@ -2,7 +2,7 @@
 <link rel = "stylesheet" href = "{{ asset('css/tabla.css') }}"/>
 <title>Alta De Mantenimientos</title>
 <section class="contenido">
-<form role="form" name="form" method="post" action="{{ url('/usuario/mantenimiento') }}">
+<form role="form" name="form" method="post" action="{{ url('/Altas/mantenimiento') }}">
 {!! csrf_field() !!}
         <table border="1" id="tab" style="display:inline-block;">
             <tr id="cabecera">
@@ -15,11 +15,7 @@
 
                 <td class="tds"><input class="inputs" type="date" name="fechaMan[]" maxlength="30"  required></td>
 
-                <select name="id_impresora[]" required>
-                @foreach ($impresoras as $impresora)
-                    <option value="{{$impresora->id_impresora}}"> {{$impresora->etiqueta}}</option>
-                @endforeach
-                </select></td>
+                <td class="tds"><input class="inputs" type="number" name="id_impresora[]" maxlength="30" placeholder="id_impresora"  required></td>
 
                 <td class="tds"><input class="inputs" type="reset" class="noEliminar" value="Eliminar" /></td>
             </tr>
@@ -37,6 +33,5 @@
 <button class="boton" onclick="location.href='{{ url('/BajaMod/Mantenimiento') }}'">busqueda</button>
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
 <script src="{{ asset('js/tablaMantenimiento.js') }}"></script>
-
 </body>
 </html>

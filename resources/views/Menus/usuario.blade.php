@@ -29,7 +29,7 @@
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 
-								<li id="pro"><a href="{{ url('/usuario/mantenimiento') }}"><span class="icon-update"></span>Programación</a></li>
+								<li id="pro"><a href="{{ url('/Altas/mantenimiento') }}"><span class="icon-update"></span>Programación</a></li>
 								<li><a href=""><span class="icon-file-text-o"></span>Informe</a></li>
 								<li id="cal"><a href="{{ url('/Usuarios/Mantenimiento/Calendario') }}"><span class="icon-calendar"></span>Calendario</a></li>
 
