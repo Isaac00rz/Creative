@@ -102,13 +102,13 @@ class consumibleAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Administrador' | $rol=='Usuario'){ 
                 $consulta = DB::table('consumibles')
                 ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
                 ->where('Activo', '=', 1)
                 ->paginate(15);
             $ultimo = 'ninguno';    
-            return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
+            return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
             }else{
                 return redirect('/home');
             }
@@ -119,14 +119,14 @@ class consumibleAltaController extends Controller
 
     public function busquedaNombre(Request $request){
         $nombre = $request->input('nombre'); 
-
+        $rol =  $request->input('rol');
         $consulta = DB::table('consumibles')
                 ->select(DB::raw("id_consumible,nombre, descripcion, existencias, precio, costo")) 
                 ->where('Activo', '=', 1)
                 ->where('nombre','like','%'.$nombre.'%')
                 ->paginate(15);
         $ultimo = $nombre;
-        return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo);
+        return view('/BusquedasAvanzadas/consumibles')->with('consumibles',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
     }
 
     public function pdf($parametro){
@@ -137,7 +137,7 @@ class consumibleAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){
+            if($rol=='Administrador' | $rol=='Usuario'){
                 if($parametro=="ninguno"){
                     $parametro="";
                 } 

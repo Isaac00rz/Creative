@@ -1,4 +1,8 @@
-@include('Menus.admin')
+@if ($rol == 'Administrador')
+    @include('Menus.admin')
+@elseif ($rol == 'Usuario')
+    @include('Menus.usuario')
+@endif
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/botones.css') }}">
 <link rel = "stylesheet" href = "{{ asset('css/FormularioBusqueda.css') }}">
@@ -15,6 +19,7 @@
                     <option value="{{$impresora->id_impresora}}"> {{$impresora->nombre}}</option>
                 @endforeach
     </select>
+    <input type="hidden" name = "rol" id = "rol" value="{{$rol}}"><br/>
     <input type="submit" value="Buscar">            
 </p>
 </form>

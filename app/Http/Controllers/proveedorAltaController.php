@@ -139,13 +139,13 @@ class proveedorAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Administrador' | $rol=='Usuario'){ 
                 $consulta = DB::table('provedores')
                 ->select(DB::raw("id_provedor, nombre as nombreC, cp, direccion, correo, telefonoPersonal,descripcion"))
                 ->where('Activo', '=', 1)
                 ->paginate(10);
             $ultimo = 'ninguno';    
-            return view('/BusquedasAvanzadas/provedores')->with('provedores',$consulta)->with('parametro',$ultimo);
+            return view('/BusquedasAvanzadas/provedores')->with('provedores',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
             }else{
                 return redirect('/home');
             }
@@ -156,14 +156,14 @@ class proveedorAltaController extends Controller
 
     public function busquedaNombre(Request $request){
         $nombre = $request->input('nombre'); 
-
+        $rol =  $request->input('rol');
                 $consulta = DB::table('provedores')
                 ->select(DB::raw("id_provedor, nombre as nombreC, cp, direccion, correo, telefonoPersonal,descripcion"))
                 ->where('Activo', '=', 1)
                 ->where('nombre','like','%'.$nombre.'%')
                 ->paginate(10);
         $ultimo = $nombre;
-        return view('/BusquedasAvanzadas/provedores')->with('provedores',$consulta)->with('parametro',$ultimo);
+        return view('/BusquedasAvanzadas/provedores')->with('provedores',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
     }
 
     public function pdf($parametro){
@@ -174,7 +174,7 @@ class proveedorAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){
+            if($rol=='Administrador' | $rol=='Usuario'){
                 if($parametro=="ninguno"){
                     $parametro="";
                 } 

@@ -27,6 +27,15 @@
 				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
 				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>
 				<li class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Búsquedas<span class="icon-dots-three-horizontal"></span></a>
+							<ul class="item">
+								<li><a href="{{ url('/Busqueda/Avanzada/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
+								<li id="pro"><a href="{{ url('/Busqueda/Avanzada/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
+								<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
+								<li><a href="{{ url('/Busqueda/Avanzada/Compatibilidad') }}"><span class="icon-wrench"></span>Compatibilidad</a></li>
+								<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
+							</ul>
+				
+				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 
