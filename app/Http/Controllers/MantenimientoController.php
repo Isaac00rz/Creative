@@ -17,7 +17,10 @@ class MantenimientoController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Usuario'){ 
-                 return view('/Altas/mantenimiento');
+                $consulta = DB::table('impresoras')
+                ->select(DB::raw("id_impresora , CONCAT(id_impresora,'-',modelo,'-',marca) as nombre"))
+                ->where('Activo','=','1')->get();
+                 return view('/Altas/mantenimiento')->with('impresoras',$consulta);
             }else{
                 return redirect('/home');
             }
@@ -37,11 +40,11 @@ class MantenimientoController extends Controller
 
             foreach($array_descripcion as $i=>$t) {
                 $consulta = DB::table('mantenimiento')
-                ->insert(['descripcion'=> $array_descripcion[$i],'fechaMan'=> $array_fechaMan[$i],'id_impresora' => $array_id_impresora,
+                ->insert(['descripcion'=> $array_descripcion[$i],'fechaMan'=> $array_fechaMan[$i],'id_impresora' => $array_id_impresora[$i],
                 'id'=>$id]); 
                 $contador++;
             }
-            
+
             if($contador == $numero){// Si se ejecutaron todas las consultas
                 return redirect('/Altas/mantenimiento');// en aso de que si se redirecciona a una direccion(no es una vista)
                 }else{
