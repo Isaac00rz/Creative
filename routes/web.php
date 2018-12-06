@@ -113,6 +113,10 @@ Route::get('/Busqueda/Avanzada/Provedores', "proveedorAltaController@busquedaA")
 Route::post('/Provedores/buscarNombre', "proveedorAltaController@busquedaNombre");
 Route::get('/Reportes/Provedores/pdf/{parametro}', "proveedorAltaController@pdf");
 
+Route::get('/Busqueda/Avanzada/Empleados', "empleadoController@busquedaA");
+Route::post('/Empleados/buscarNombre', "empleadoController@busquedaNombre");
+Route::get('/Reportes/Empleados/pdf/{parametro}', "empleadoController@pdf");
+
 Route::resource('/usuario/events',"EventController");
 Route::get('/usuario/addeventurl',"EventController@display");
 Route::get('/usuario/displaydata',"EventController@show");
