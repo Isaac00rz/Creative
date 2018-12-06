@@ -25,16 +25,7 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a>
-				<ul class="item">
-						<li><a href="{{ url('/Busqueda/Avanzada/Consumibles') }}"><span class="icon-droplet"></span>Busqueda Consumibles</a></li>
-						<li id="pro"><a href="{{ url('/Busqueda/Avanzada/Impresoras') }}"><span class="icon-printer"></span>Busqueda Impresoras</a></li>
-						<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Clientes') }}"><span class="icon-user-tie"></span>Busqueda Clientes</a></li>
-						<li><a href="{{ url('/Busqueda/Avanzada/Compatibilidad') }}"><span class="icon-wrench"></span>Compatibilidad</a></li>
-						<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
-						<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
-				</ul>
-				</li>
+				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a></li>
 				
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-up"></span>Altas <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
@@ -55,6 +46,16 @@
 								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
+							</ul>
+				</li>
+				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Búsquedas<span class="icon-dots-three-horizontal"></span></a>
+							<ul class="item">
+								<li><a href="{{ url('/Busqueda/Avanzada/Consumibles') }}"><span class="icon-droplet"></span>Consumibles</a></li>
+								<li id="pro"><a href="{{ url('/Busqueda/Avanzada/Impresoras') }}"><span class="icon-printer"></span>Impresoras</a></li>
+								<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
+								<li><a href="{{ url('/Busqueda/Avanzada/Compatibilidad') }}"><span class="icon-wrench"></span>Compatibilidad</a></li>
+								<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
+								<li id="cal"><a href="{{ url('/Busqueda/Avanzada/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-file-text-o"></span>Reportes<span class="icon-dots-three-horizontal"></span></a>

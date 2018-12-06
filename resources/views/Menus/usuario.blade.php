@@ -26,6 +26,7 @@
 				<li><a href=""><span class="icon-banknote"></span>Ventas</a></li>
 				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
 				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>
+				<li class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Búsquedas<span class="icon-dots-three-horizontal"></span></a>
 				<li id="man" class="submenu"><a href="#"><span class="icon-wrench"></span>Mantenimiento <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">
 
