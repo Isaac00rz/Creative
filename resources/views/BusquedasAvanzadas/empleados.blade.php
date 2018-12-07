@@ -17,6 +17,7 @@ margin-left: 0%;
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
 </p>
 </form>
+<button class="boton" onclick="location.href='{{ url('/Reportes/Empleados/pdf',$parametro) }}'">Generar PDF</button>
     <div id="tabla">
         <table cellspacing="0">
             <th>ID</th>
@@ -46,6 +47,6 @@ margin-left: 0%;
     <br>
 {{ $Empleados->links('paginacion.paginacion') }}
 <br><br><br><br>
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Empleados/pdf',$parametro) }}'">Generar PDF</button>
+   
 
 </section>

@@ -22,6 +22,7 @@ margin-left: 0%;
     <input type="hidden" name = "rol" id = "rol" value="{{$rol}}"><br/>
 </p>
 </form>
+<button class="boton" onclick="location.href='{{ url('/Reportes/Consumibles/pdf',$parametro) }}'">Generar PDF</button>
     <div id="tabla">
         <table cellspacing="0">
             <tr>
@@ -47,6 +48,6 @@ margin-left: 0%;
     <br>
 {{ $consumibles->links('paginacion.paginacion') }}
 <br><br><br><br>
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Consumibles/pdf',$parametro) }}'">Generar PDF</button>
+    
 
 </section>
