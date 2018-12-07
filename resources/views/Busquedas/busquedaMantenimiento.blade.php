@@ -1,5 +1,6 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tablaDatos.css') }}">
+<link rel = "stylesheet" href = "{{ asset('css/paginacion.css') }}">
 <title>Baja/Mod mantenimientos</title>
 <section class="contenido">
 <table id="tabla" >
@@ -26,5 +27,6 @@
 		</tr>
 	@endforeach
 </table>
-{{ $mantenimientos->links() }}
+<br>
+{{ mantenimientos->links('paginacion.paginacion') }}
 </section> 
