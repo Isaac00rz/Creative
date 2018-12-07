@@ -25,7 +25,7 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href="{{ url('/admin') }}"><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/home') }}"><span class="icon-home3"></span>Inicio</a></li>
 				
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-up"></span>Altas <span class="icon-dots-three-horizontal"></span></a>
 							<ul class="item">

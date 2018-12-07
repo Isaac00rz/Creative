@@ -24,7 +24,7 @@
  
 		<nav>
 			<ul class="menu">
-				<li><a href="{{ url('/user') }}"><span class="icon-home3"></span>Inicio</a></li>
+				<li><a href="{{ url('/home') }}"><span class="icon-home3"></span>Inicio</a></li>
 				<li><a href=""><span class="icon-banknote"></span>Ventas</a></li>
 				<li><a href=""><span class="icon-cart"></span>Compras</a></li>
 				<li><a href=""><span class="icon-monetization_on"></span>Rentas</a></li>
