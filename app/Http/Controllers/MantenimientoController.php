@@ -17,7 +17,10 @@ class MantenimientoController extends Controller
                 $rol = $c->Rol;
             }
             if($rol=='Usuario'){ 
-                 return view('/Altas/mantenimiento');
+                $consulta = DB::table('impresoras')
+                ->select(DB::raw("id_impresora , CONCAT(id_impresora,'-',modelo,'-',marca) as nombre"))
+                ->where('Activo','=','1')->get();
+                 return view('/Altas/mantenimiento')->with('impresoras',$consulta);
             }else{
                 return redirect('/home');
             }
@@ -37,11 +40,11 @@ class MantenimientoController extends Controller
 
             foreach($array_descripcion as $i=>$t) {
                 $consulta = DB::table('mantenimiento')
-                ->insert(['descripcion'=> $array_descripcion[$i],'fechaMan'=> $array_fechaMan[$i],'id_impresora' => $array_id_impresora,
+                ->insert(['descripcion'=> $array_descripcion[$i],'fechaMan'=> $array_fechaMan[$i],'id_impresora' => $array_id_impresora[$i],
                 'id'=>$id]); 
                 $contador++;
             }
-            
+
             if($contador == $numero){// Si se ejecutaron todas las consultas
                 return redirect('/Altas/mantenimiento');// en aso de que si se redirecciona a una direccion(no es una vista)
                 }else{
@@ -50,12 +53,34 @@ class MantenimientoController extends Controller
     }
 
     public function busqueda(){
-        $consulta = DB::table('mantenimiento')// para hacer una consulta se selecciona una tabla y de almacena en una variable
-            ->select(DB::raw("id_mantenimiento,descripcion,fechaMan, id_impresora")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
-            ->where('Activo', '=', 1)// Uso del where
-            ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
-        return view('/Busquedas/busquedaMantenimiento')->with('mantenimiento',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
+        if(Auth::check()){
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Usuario'){ 
+                $ids = DB::table('FinMan')
+                ->select('id_mantenimiento')->get();
+                $data[] = 0;
+                foreach($ids as $id){
+                    $data[] = $id->id_mantenimiento;
+                }
 
+                $consulta = DB::table('mantenimiento')
+                ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
+                ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora, modelo"))
+                ->where('mantenimiento.Activo','=',1)
+                ->whereNotIn('mantenimiento.id_Mantenimiento', $data)->paginate(15);
+                return view('/Busquedas/busquedaMantenimiento')->with('mantenimientos',$consulta);// regreso una vista y le paso los datos en forma de array, con el nombre clientes y los valores de $consulta
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
     }
 
      public function eliminar($id_mantenimiento){ //Eliminacion logica
@@ -75,12 +100,15 @@ class MantenimientoController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Usuario'){ 
+                $impresoras = DB::table('impresoras')
+                ->select(DB::raw("id_impresora , CONCAT(id_impresora,'-',modelo,'-',marca) as nombre"))
+                ->where('Activo','=','1')->get();
                 $consulta = DB::table('mantenimiento')
                     ->select('id_mantenimiento','descripcion','fechaMan','id_impresora')
                     ->where('Activo','=',1)
                     ->where('id_mantenimiento','=',$id_mantenimiento)->get();
-                 return view('/Modificaciones/mantenimientoMod')->with('mantenimiento',$consulta);
+                 return view('/Modificaciones/mantenimientoMod')->with('mantenimiento',$consulta)->with('impresoras',$impresoras);
             }else{
                 return redirect('/home');// Si no es un usuario administrador se regresa al home
             }
@@ -94,6 +122,7 @@ class MantenimientoController extends Controller
         $descripcion = $request->input('descripcion');
         $fechaMan = $request->input('fechaMan');
         $id_impresora = $request->input('id_impresora');
+        $id_mantenimiento = $request->input('id_mantenimiento');
 
         $consulta = DB::table('mantenimiento')
         ->where('id_mantenimiento','=',$id_mantenimiento)

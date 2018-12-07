@@ -62,12 +62,12 @@ class compatibilidadController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Administrador' | $rol=='Usuario'){ 
                 $consulta = DB::table('impresoras')
                 ->select(DB::raw("id_impresora , CONCAT(id_impresora,' ',modelo,'-',marca) as nombre"))
                 ->where('Activo','=','1')->get();
             $ultimo = 'ninguno';    
-            return view('/BusquedasAvanzadas/compatibilidad')->with('impresoras',$consulta)->with('parametro',$ultimo);
+            return view('/BusquedasAvanzadas/compatibilidad')->with('impresoras',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
             }else{
                 return redirect('/home');
             }
@@ -78,7 +78,7 @@ class compatibilidadController extends Controller
 
     public function busquedaNombre(Request $request){
         $id_impresora = $request->input('id_impresora'); 
-
+        $rol =  $request->input('rol');
                 $consulta = DB::table('consumibles')
                 ->join('compatibilidad','compatibilidad.id_consumible','=','consumibles.id_consumible')
                 ->select(DB::raw("consumibles.id_consumible,nombre, descripcion, existencias, precio, costo")) 
@@ -89,7 +89,7 @@ class compatibilidadController extends Controller
                 ->select(DB::raw("id_impresora , CONCAT(id_impresora,' ',modelo,'-',marca) as nombre"))
                 ->where('Activo','=','1')->get();
         $ultimo = $id_impresora;
-        return view('/BusquedasAvanzadas/compatibilidadConsumible')->with('consumibles',$consulta)->with('parametro',$ultimo)->with('impresoras',$consulta2);
+        return view('/BusquedasAvanzadas/compatibilidadConsumible')->with('consumibles',$consulta)->with('parametro',$ultimo)->with('impresoras',$consulta2)->with('rol',$rol);
     }
 
     public function pdf($parametro){
@@ -100,7 +100,7 @@ class compatibilidadController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){
+            if($rol=='Administrador' | $rol=='Usuario'){
                 if($parametro=="ninguno"){
                     $parametro="";
                 } 

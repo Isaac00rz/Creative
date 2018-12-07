@@ -124,7 +124,7 @@ Route::get('/usuario/deleteEventsurl',"EventController@show");
 
 
 Route::get('/Altas/mantenimiento',"MantenimientoController@formulario");
-
+Route::post('/Altas/mantenimientoAlta',"MantenimientoController@store");
 Route::get('/BajaMod/Mantenimiento',"MantenimientoController@busqueda");
 Route::get('/mantenimiento/editar/{id_mantenimiento}',"MantenimientoController@editar");
 Route::get('/mantenimiento/eliminar/{id_mantenimiento}',"MantenimientoController@eliminar");

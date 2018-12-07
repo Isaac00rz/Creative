@@ -110,13 +110,13 @@ class impresoraAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Administrador' | $rol=='Usuario'){ 
                 $consulta = DB::table('impresoras')
             ->select(DB::raw("id_impresora,modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) 
             ->where('Activo', '=', 1)
             ->paginate(10);
             $ultimo = 'ninguno';    
-            return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo);
+            return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
             }else{
                 return redirect('/home');
             }
@@ -127,14 +127,14 @@ class impresoraAltaController extends Controller
 
     public function busquedaNombre(Request $request){
         $nombre = $request->input('nombre'); 
-
+        $rol =  $request->input('rol');
                 $consulta = DB::table('impresoras')
                 ->select(DB::raw("id_impresora,modelo, marca, existencias, precio, costo, precioRenta, FechaCompra")) 
                 ->where('Activo', '=', 1)
                 ->where('modelo','like','%'.$nombre.'%')
                 ->paginate(10);
         $ultimo = $nombre;
-        return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo);
+        return view('/BusquedasAvanzadas/impresoras')->with('impresoras',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
     }
 
     public function pdf($parametro){
@@ -145,7 +145,7 @@ class impresoraAltaController extends Controller
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){
+            if($rol=='Administrador' | $rol=='Usuario'){
                 if($parametro=="ninguno"){
                     $parametro="";
                 } 

@@ -1,4 +1,8 @@
-@include('Menus.admin')
+@if ($rol == 'Administrador')
+    @include('Menus.admin')
+@elseif ($rol == 'Usuario')
+    @include('Menus.usuario')
+@endif
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/botones.css') }}">
 <link rel = "stylesheet" href = "{{ asset('css/FormularioBusqueda.css') }}">
@@ -11,6 +15,7 @@
 <p>
     <label for ="nombre">Nombre Consumible:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
+    <input type="hidden" name = "rol" id = "rol" value="{{$rol}}"><br/>
 </p>
 </form>
     <div id="tabla">

@@ -141,13 +141,13 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){ 
+            if($rol=='Administrador' | $rol=='Usuario'){ 
                 $consulta = DB::table('clientes')
             ->select(DB::raw("rfc, nombre as nombreC, cp, direccion, correo, telefonoPersonal,telefonoFijo")) 
             ->where('Activo', '=', 1)
             ->paginate(10);
             $ultimo = 'ninguno';    
-            return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo);
+            return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
             }else{
                 return redirect('/home');
             }
@@ -157,7 +157,8 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
     }
 
     public function busquedaNombre(Request $request){
-        $nombre = $request->input('nombre'); 
+        $nombre = $request->input('nombre');
+        $rol =  $request->input('rol');
 
                 $consulta = DB::table('clientes')
                 ->select(DB::raw("rfc, nombre as nombreC, cp, direccion, correo, telefonoPersonal,telefonoFijo")) 
@@ -165,7 +166,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
                 ->where('nombre','like','%'.$nombre.'%')
                 ->paginate(10);
         $ultimo = $nombre;
-        return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo);
+        return view('/BusquedasAvanzadas/clientes')->with('clientes',$consulta)->with('parametro',$ultimo)->with('rol',$rol);
     }
 
     public function pdf($parametro){
@@ -176,7 +177,7 @@ public function store(Request $request){ //Request nos sirbe para capturar los d
             foreach($consultaRol as $c){
                 $rol = $c->Rol;
             }
-            if($rol=='Administrador'){
+            if($rol=='Administrador' | $rol=='Usuario'){
                 if($parametro=="ninguno"){
                     $parametro="";
                 } 

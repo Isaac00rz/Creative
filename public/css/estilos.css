@@ -32,7 +32,7 @@ header nav ul{
 
 header nav ul li {
 	float: left;
-	width: 16.66%;
+	width: 14.2857%;
 	text-align: center;
 }
 
@@ -64,7 +64,7 @@ header nav ul li .item {
 	display: none;
 	background:#011826;
 	position: absolute;
-	width: 16.66%;
+	width: 14.2857%;
 	z-index:1;
 }
  
