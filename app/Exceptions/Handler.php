@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Swift_SwiftException;
 
 class Handler extends ExceptionHandler
 {
@@ -47,8 +48,9 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
-/*         if ($this->isHttpException($e)) {
-        } */
+         if ($exception instanceof Swift_SwiftException) {
+            abort(403, 'There was an error sending the password reset email. Try again!.');
+        } 
         return parent::render($request, $exception);
     }
 }

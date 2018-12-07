@@ -1,0 +1,43 @@
+
+.pagination li{
+    float: left;
+    list-style: none;
+    border-right: none;
+    
+}
+ 
+.pagination a, .active, .disabled
+{
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: none;
+  border-left-width: 0;
+  color: #111;
+}
+ 
+.pagination span
+{
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+  color: #fff;
+  background: #555;
+  border-radius: 10px;
+}
+
+.pagination .otro a{
+    color:black;
+    background: rgb(4, 101, 228);
+    margin: 0 14px 0 14px;
+    border-radius: 10px;
+}
+
+#paginas{
+margin-left: 11.5%;
+}
+ 

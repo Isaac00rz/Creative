@@ -26,5 +26,14 @@ function main(){
 		$(this).children('.item').slideToggle();
 	});
 
+	$('.menu>li a').click(function(){
+		$(".item").slideUp("300");
+		$(this).children('.item').slideDown("300");
+	  });
+	
+	  $('.menu').mouseleave(function(){
+		$(".item").slideUp("300");
+	  });
+
 };
 
