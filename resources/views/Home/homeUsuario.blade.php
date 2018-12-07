@@ -30,10 +30,6 @@ margin-left: 0%;
         </table>
     </div>
     {{ $reportes->links('paginacion.paginacion') }}
-<<<<<<< HEAD
-=======
-
->>>>>>> fef2f3352cd223e7c330cc8d88ce1fcff65d9bc4
 </section>
 </body>
 </html>

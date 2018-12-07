@@ -131,8 +131,9 @@ width: 155px;
 }
 			
 #bienvenida p{
-	font-size: 100px;
+	font-size: 9vw; 
 	color: darkorchid;
+	text-shadow: mediumorchid 5px 5px 5px;
 }
 
 #bienvenida{
