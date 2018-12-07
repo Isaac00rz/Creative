@@ -46,12 +46,10 @@ class reporteInventarioController extends Controller
   function convert_customer_data_to_html()
   {
     $inventory_data = $this->get_customer_data();
-    
 
     $output = '
     <img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
-      <div class="col-md-5" align="right">
-
+  
      <h3 align="center">Datos Del Inventario</h3>
       <h4 align="center">Comsumibles</h4>
          

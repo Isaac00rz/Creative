@@ -46,7 +46,7 @@
 								<li id="cal"><a href="{{ url('/BajaMod/Clientes') }}"><span class="icon-user-tie"></span>Clientes</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Provedores') }}"><span class="icon-truck"></span>Provedores</a></li>
 								<li id="cal"><a href="{{ url('/BajaMod/Empleados') }}"><span class="icon-group"></span>Empleados</a></li>
-								<li id="cal"><a href="{{ url('/BajaMod/Compatibilidad') }}"><span class="icon-group"></span>Compatibilidad</a></li>
+								<li id="cal"><a href="{{ url('/BajaMod/Compatibilidad') }}"><span class="icon-wrench"></span>Compatibilidad</a></li>
 							</ul>
 				</li>
 				<li id="man" class="submenu"><a href="#"><span class="icon-arrow-circle-o-down"></span>Búsquedas<span class="icon-dots-three-horizontal"></span></a>
