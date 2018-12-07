@@ -50,6 +50,7 @@ class reporteInventarioController extends Controller
 
     $output = '
     <img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
+      <div class="col-md-5" align="right">
 
      <h3 align="center">Datos Del Inventario</h3>
       <h4 align="center">Comsumibles</h4>
