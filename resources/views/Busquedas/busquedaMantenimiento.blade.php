@@ -28,5 +28,5 @@
 	@endforeach
 </table>
 <br>
-{{ mantenimientos->links('paginacion.paginacion') }}
+{{ $mantenimientos->links('paginacion.paginacion') }}
 </section> 

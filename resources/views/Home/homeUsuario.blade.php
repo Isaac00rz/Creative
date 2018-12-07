@@ -1,31 +1,31 @@
 @include('Menus.usuario')
-
+<link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
 <title>Home</title>
 <section class="contenido">
-    <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
-        <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
-        <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
+    <h3 align="center">Mantenimietos Pendientes</h3>
+    <div id="tabla">
+        <table cellspacing="0">
+            <tr>
+                <th>ID Mantenimiento</th>
+                <th>ID Impresora</th>
+                <th>Modelo</th>
+                <th>Descripcion</th>
+                <th>Fecha de mantenimiento</th>
+                <th>Estado</th>
+            </tr>
+            @foreach ($reportes as $reporte)
+            <tr>
+                <td>{{$reporte->id_Mantenimiento}}</td>
+                <td>{{$reporte->id_impresora}}</td>
+                <td>{{$reporte->modelo}}</td>
+                <td>{{$reporte->descripcion}}</td>
+                <td>{{$reporte->fechaMan}}</td>
+                <td>Pendiente</td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+    {{ $reportes->links() }}
 </section>
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
 <script src="{{ asset('js/menu.js') }}"></script>
