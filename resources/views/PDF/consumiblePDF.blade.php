@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
+<img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
     <title>Busqueda Consumibles</title>
     <h3 align="center">Busqueda de Consumibles</h3>
     <div id="tabla">

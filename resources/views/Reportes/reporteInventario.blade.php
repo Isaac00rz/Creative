@@ -28,7 +28,6 @@
   <br />
   <div class="container">
    <h3 align="center">Reporte Consumibles</h3><br />
-   
    <div class="row">
     <div class="col-md-7" align="Center">
      <h4>Datos del Invetario</h4>

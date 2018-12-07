@@ -34,7 +34,7 @@ class mantenimientosPDFController extends Controller
                 ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora, modelo"))
                 ->where('mantenimiento.Activo','=',1)
                 ->whereNotIn('mantenimiento.id_Mantenimiento', $data)->get();
-
+                
         $pdf = PDF::loadView('PDF/manPendientes', ['reportes' => $consulta]);
         return $pdf->stream('result.pdf');
     }

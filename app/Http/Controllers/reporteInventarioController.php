@@ -46,7 +46,14 @@ class reporteInventarioController extends Controller
   function convert_customer_data_to_html()
   {
     $inventory_data = $this->get_customer_data();
-    $output = '  <h3 align="center">Datos Del Inventario</h3>
+    
+
+    $output = '
+    <img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
+
+     <h3 align="center">Datos Del Inventario</h3>
+      <h4 align="center">Comsumibles</h4>
+         
      <table width="100%" style="border-collapse: collapse; border: 0px;">
       <tr>
     <th style="border: 1px solid; padding:12px;" width="23%">Nombre</th>
@@ -114,7 +121,10 @@ function pdf2()
 function convert_printer_data_to_html()
   {
     $inventory_data = $this->get_printer_data();
-    $output = '  <h3 align="center">Datos Del Inventario</h3>
+    $output = '   <img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
+    <h3 align="center">Datos Del Inventario</h3>
+        <h3 align="center">Impresoras</h3>
+         
      <table width="100%" style="border-collapse: collapse; border: 0px;">
       <tr>
     <th style="border: 1px solid; padding:12px;" width="23%">Modelo</th>

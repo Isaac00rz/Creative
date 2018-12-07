@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTablaPDF.css') }}"/>
+<img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
     <title>Busqueda Compatibilidad</title>
     <h3 align="center">Busqueda de Compatibilidad</h3>
     <hr>

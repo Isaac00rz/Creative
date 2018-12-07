@@ -2,6 +2,7 @@
 <head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTablaPDF.css') }}"/>
 </head>
+<img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
     <title>Reporte Mantenimiento General</title>
     <h3 align="center">Mantenimieto General</h3>
         <table cellspacing="0">

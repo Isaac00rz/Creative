@@ -18,6 +18,7 @@ table {
     border-radius:5px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
+
 th, td {padding:4px 9px 4px; text-align:center; font-size: 11px}
 th {padding-top:6px; text-shadow: 1px 1px 1px #fff; background:#e8eaeb; font-size: 16px}
 td {border-top:1px solid #e0e0e0; border-right:1px solid #e0e0e0;}

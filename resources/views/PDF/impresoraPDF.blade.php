@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel = "stylesheet" href = "{{ asset('css/reporteTablaPDF.css') }}"/>
+<img src="C:\xampp\htdocs\Creative\public\logo.png" height="150" width="250">
     <title>Busqueda Impresoras</title>
     <h3 align="center">Busqueda de Impresoras</h3>
     <div id="tabla">
