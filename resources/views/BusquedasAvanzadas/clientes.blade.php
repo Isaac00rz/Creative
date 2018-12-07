@@ -12,11 +12,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Clientes</title>
-    <h3 align="center">Busqueda de Clientes</h3>
+    <title>Búsqueda Clientes</title>
+    <h3 align="center">Búsqueda de Clientes</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Clientes/buscarNombre') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">Nombre Cliente:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
@@ -29,10 +29,10 @@ margin-left: 0%;
             <th>RFC</th>
             <th>Nombre</th>
             <th>CP</th>
-            <th>Direccion </th>
+            <th>Dirección </th>
             <th>Correo </th>
-            <th>Telefono Personal </th>
-            <th>Telefono Fijo </th>
+            <th>Teléfono Personal </th>
+            <th>Teléfono Fijo </th>
             </tr>
             @foreach ($clientes as $cliente)
             <tr>

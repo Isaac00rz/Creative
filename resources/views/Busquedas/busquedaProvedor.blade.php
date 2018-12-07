@@ -9,11 +9,11 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>CP</th>
-        <th>Direccion</th>
+        <th>Dirección</th>
         <th>Correo</th>
-		<th>Telefono</th>
+		<th>Teléfono</th>
         <th>Descripción</th>
-		<th>Accion</th>
+		<th>Acción</th>
 	</tr>
 	</thead>
 	<tbody>

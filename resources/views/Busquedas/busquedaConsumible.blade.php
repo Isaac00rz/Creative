@@ -8,11 +8,11 @@
 	<thead>
 	<tr>
         <th>Nombre</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Existencias</th>
 		<th>Precio</th>
 		<th>Costo</th>
-		<th>Accion</th>
+		<th>Acción</th>
 	</tr>
 	</thead>
 	<tbody>

@@ -7,10 +7,10 @@
 	<thead>
 	<tr>
 		<th>ID Mantenimiento</th>
-		<th>ID impresora</th>
-        <th>Descripcion</th>
+		<th>ID Impresora</th>
+        <th>Descripción</th>
         <th>Fecha del Mantenimiento</th>
-		<th>Accion</th>
+		<th>Acción</th>
 	</tr>
 	</thead>
 	<tbody>

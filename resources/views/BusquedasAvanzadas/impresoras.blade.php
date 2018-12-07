@@ -12,11 +12,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Impresoras</title>
-    <h3 align="center">Busqueda de Impresoras</h3>
+    <title>Búsqueda Impresoras</title>
+    <h3 align="center">Búsqueda de Impresoras</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Impresoras/buscarModelo') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">Modelo Impresora:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Modelo" autofocus required><br/>

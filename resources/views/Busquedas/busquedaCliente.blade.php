@@ -9,10 +9,10 @@
         <th>RFC</th>
         <th>Nombre</th>
         <th>CP</th>
-        <th>Direccion </th>
+        <th>Dirección </th>
         <th>Correo </th>
-		<th>Telefono Personal </th>
-		<th>Accion</th>
+		<th>Teléfono Personal </th>
+		<th>Acción</th>
 	</tr>
 	</thead>
 	<tbody>

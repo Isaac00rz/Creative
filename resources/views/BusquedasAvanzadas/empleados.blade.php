@@ -7,11 +7,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Empleados</title>
-    <h3 align="center">Busqueda de Empleados</h3>
+    <title>Búsqueda Empleados</title>
+    <h3 align="center">Búsqueda de Empleados</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Empleados/buscarNombre') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">Nombre Empleado:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>

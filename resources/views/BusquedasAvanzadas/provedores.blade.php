@@ -13,11 +13,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Provedores</title>
-    <h3 align="center">Busqueda de Provedor</h3>
+    <title>Búsqueda Provedores</title>
+    <h3 align="center">Búsqueda de Provedor</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Clientes/buscarNombre') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">Nombre Provedor:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
@@ -30,9 +30,9 @@ margin-left: 0%;
         <th>ID</th>
         <th>Nombre</th>
         <th>CP</th>
-        <th>Direccion</th>
+        <th>Dirección</th>
         <th>Correo</th>
-		<th>Telefono</th>
+		<th>Teléfono</th>
         <th>Descripción</th>
 	</tr>
 	</thead>

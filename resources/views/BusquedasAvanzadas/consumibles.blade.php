@@ -11,11 +11,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Consumibles</title>
-    <h3 align="center">Busqueda de Consumibles</h3>
+    <title>Búsqueda Consumibles</title>
+    <h3 align="center">Búsqueda de Consumibles</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Consumible/buscarNombre') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">Nombre Consumible:</label> 
 	<input type="text" name = "nombre" id = "nombre" size = "30" maxlength = "20" placeholder="Nombre" autofocus required><br/>
@@ -27,7 +27,7 @@ margin-left: 0%;
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Existencias</th>
                 <th>Precio</th>
                 <th>Costo</th>

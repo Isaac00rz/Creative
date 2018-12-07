@@ -11,11 +11,11 @@
 margin-left: 0%;
 }</style>
 <section class="contenido">
-    <title>Busqueda Consumibles</title>
-    <h3 align="center">Busqueda de Consumibles</h3>
+    <title>Búsqueda Consumibles</title>
+    <h3 align="center">Búsqueda de Consumibles</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Compatibilidad/buscarConsumible') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">ID Impresora:</label> 
 	<select name="id_impresora" required>
@@ -36,7 +36,7 @@ margin-left: 0%;
             <tr>
                 <th>ID Consumible</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Existencias</th>
                 <th>Precio</th>
                 <th>Costo</th>

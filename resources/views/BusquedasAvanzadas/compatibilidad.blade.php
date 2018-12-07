@@ -6,11 +6,11 @@
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/FormularioBusqueda.css') }}">
 <section class="contenido">
-    <title>Busqueda Compatibilidad</title>
-    <h3 align="center">Busqueda de Compatibilidad</h3>
+    <title>Búsqueda Compatibilidad</title>
+    <h3 align="center">Búsqueda de Compatibilidad</h3>
     <form id = "Busqueda" role="form" method="post" action="{{ url('/Compatibilidad/buscarConsumible') }}">
 {!! csrf_field() !!}
-<legend>Busqueda</legend>
+<legend>Búsqueda</legend>
 <p>
     <label for ="nombre">ID Impresora:</label> 
 	<select name="id_impresora" required>
@@ -27,7 +27,7 @@
             <tr>
                 <th>ID Consumible</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Existencias</th>
                 <th>Precio</th>
                 <th>Costo</th>

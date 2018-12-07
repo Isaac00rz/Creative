@@ -14,7 +14,7 @@
 		<th>Costo</th>
 		<th>Precio Renta</th>
 		<th>Fecha de Compra</th>
-		<th>Accion</th>
+		<th>Acción</th>
 	</tr>
 	</thead>
 	<tbody>
