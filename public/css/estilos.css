@@ -130,7 +130,18 @@ width: 155px;
 	margin-right: 15px;
 }
 			
+#bienvenida p{
+	font-size: 100px;
+	color: darkorchid;
+}
 
+#bienvenida{
+text-align: center;
+}
+
+#bienvenida img{
+width: 50%;
+}
 
 @media screen and (max-width:800px){
 
