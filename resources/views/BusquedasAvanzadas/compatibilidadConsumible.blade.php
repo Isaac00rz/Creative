@@ -27,6 +27,7 @@ margin-left: 0%;
     <input type="submit" value="Buscar">            
 </p>
 </form>
+<button class="boton" onclick="location.href='{{ url('/Reportes/Compatibilidad/pdf',$parametro) }}'">Generar PDF</button>
 <hr>
 </br>
 </br>
@@ -56,6 +57,6 @@ margin-left: 0%;
     <br>
 {{ $consumibles->links('paginacion.paginacion') }}
 <br><br><br><br>
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Compatibilidad/pdf',$parametro) }}'">Generar PDF</button>
+   
 
 </section>

@@ -5,6 +5,7 @@
 <section class="contenido">
     <title>Reporte Mantenimiento Finalizado</title>
     <h3 align="center">Mantenimietos Finalizado</h3>
+    <button class="boton" onclick="location.href='{{ url('/Reportes/Mantenimiento/Finalizado/pdf') }}'">Generar PDF</button>
     <div id="tabla">
         <table cellspacing="0">
             <tr>
@@ -38,5 +39,5 @@
     <br>
     <br>
     <br>
-    <button class="boton" onclick="location.href='{{ url('/Reportes/Mantenimiento/Finalizado/pdf') }}'">Generar PDF</button>
+    
 </section>
