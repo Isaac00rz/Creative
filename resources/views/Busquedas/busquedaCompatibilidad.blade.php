@@ -1,5 +1,6 @@
 @include('Menus.admin')
 <link rel = "stylesheet" href = "{{ asset('css/tablaDatos.css') }}">
+<link rel = "stylesheet" href = "{{ asset('css/paginacion.css') }}">
 <title>Baja/Mod Compatibilidad </title>
 <section class="contenido">
 <table id="tabla" cellpadding = "0" cellspacing="0">
@@ -22,4 +23,6 @@
  @endforeach
 
 </table>
+<br>
+{{ $compatibilidad->links('paginacion.paginacion') }}
 </section> 

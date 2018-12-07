@@ -6,6 +6,8 @@
 	<link rel = "stylesheet" href = "{{ asset('css/estilos.css') }}"/>
 	<link rel = "stylesheet" href = "{{ asset('css/fonts.css') }}"/> 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+	<script src="{{ asset('js/menu.js') }}"></script>
 </head>
 <body>
 	<header>

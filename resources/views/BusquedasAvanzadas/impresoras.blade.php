@@ -7,6 +7,10 @@
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
 <link rel = "stylesheet" href = "{{ asset('css/botones.css') }}">
 <link rel = "stylesheet" href = "{{ asset('css/FormularioBusqueda.css') }}">
+<link rel = "stylesheet" href = "{{ asset('css/paginacion.css') }}">
+<style>#paginas{
+margin-left: 0%;
+}</style>
 <section class="contenido">
     <title>Busqueda Impresoras</title>
     <h3 align="center">Busqueda de Impresoras</h3>
@@ -45,7 +49,9 @@
             @endforeach
         </table>
     </div>
-    {{ $impresoras->links() }}
+    <br>
+{{ $impresoras->links('paginacion.paginacion') }}
+<br><br><br><br>
     <button class="boton" onclick="location.href='{{ url('/Reportes/Impresoras/pdf',$parametro) }}'">Generar PDF</button>
 
 </section>
