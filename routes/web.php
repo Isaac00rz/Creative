@@ -32,9 +32,7 @@ Route::get('/Altas/Compatibilidad',"compatibilidadController@formulario");
 Route::post('/Altas/altaCompatibilidad',"compatibilidadController@store");
 
 Route::get('/BajaMod/Compatibilidad',"compatibilidadController@busqueda");
-Route::get('/Compatibilidad/eliminar/{id_consumible}',"compatibilidadController@eliminar");
-
-
+Route::get('/Compatibilidad/eliminar/{id_consumible}/{id_impresora}',"compatibilidadController@eliminar");
 
 
 Route::get('/Altas/Consumibles',"consumibleAltaController@formulario");

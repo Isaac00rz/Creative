@@ -12,16 +12,13 @@
 	</thead>
 	<tbody>
 	
-	 @foreach ($impresoras as $impresora)
-	  @foreach ($consumibles as $consumible)
+	 @foreach ($compatibilidad as $compatibilidades)
 	 	<tr>
-		<td>{{$impresora->nombre}}</td>
-		<td>{{$consumible->nombre}}</td>
-		 <td><a href="{{ URL('/Compatibilidad/eliminar',$consumible->id_consumible) }}">Eliminar</a></td>
-	</tr>
-	  @endforeach
-	  @endforeach
-
+		<td>{{$compatibilidades->id_consumible}}</td>
+		<td>{{$compatibilidades->id_impresora}}</td>
+		 <td><a href="{{ URL('/Compatibilidad/eliminar'.$compatibilidades->id_consumible,$compatibilidades->id_impresora) }}">Eliminar</a></td>
+		 </tr>
+ @endforeach
 
 </table>
 </section> 
