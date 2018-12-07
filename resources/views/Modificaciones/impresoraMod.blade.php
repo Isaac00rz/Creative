@@ -17,8 +17,8 @@
             </tr>
             @foreach ($impresoras as $i)
             <tr>
-                <td><input  type="text" name="modelo" maxlength = "15" placeholder="nombre" value = "{{$i->modelo}}" required></td>
-                <td><input  type="text" name="marca" maxlength = "15" placeholder="descripcion" value = "{{$i->marca}}" required></td>
+                <td><input  type="text" name="modelo" maxlength = "20" placeholder="nombre" value = "{{$i->modelo}}" required></td>
+                <td><input  type="text" name="marca" maxlength = "20" placeholder="descripcion" value = "{{$i->marca}}" required></td>
 
                 <td><input  type="number" name="existencias" maxlength="20" placeholder="existencias" value = "{{$i->existencias}}" required></td>
 

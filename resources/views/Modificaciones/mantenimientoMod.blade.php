@@ -27,7 +27,7 @@
                     
                 @endforeach
                 </select></td>
-                <td><input  type="text" name="descripcion" maxlength = "50" placeholder="descripcion" value = "{{$i->descripcion}}" required></td>
+                <td><input  type="text" name="descripcion" maxlength = "150" placeholder="descripcion" value = "{{$i->descripcion}}" required></td>
                 <td><input  type="date" name="fechaMan" value = "{{$i->fechaMan}}" required></td>
                 <td><input  type = "hidden" name="id_mantenimiento" value = "{{$i->id_mantenimiento}}"></td>
                 

@@ -20,7 +20,7 @@
                     <option value="{{$mantenimiento->id_Mantenimiento}}"> {{$mantenimiento->etiqueta}}</option>
                 @endforeach
                 </select></td>
-                <td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "1150" placeholder="Descripcion" required></td>
+                <td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "150" placeholder="Descripcion" required></td>
                 <td class="tds"><input class="inputs" type="date" name="fecha[]" maxlength = "20" placeholder="Fecha" required></td>
                 <td class="tds"><input class="inputs" type="text" name="extras[]" maxlength = "250" placeholder="Extras" required></td>
                 </select></td>
@@ -44,7 +44,7 @@
     function agregar() {
     var tds = '<tr>';
     tds += '<td class="tds"><select name="id_mantenimiento[]" required> @foreach ($mantenimientos as $mantenimiento)<option value="{{$mantenimiento->id_Mantenimiento}}"> {{$mantenimiento->etiqueta}}</option> @endforeach</select></td>' 
-    tds += '<td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "1150" placeholder="Descripcion" required></td>'            
+    tds += '<td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "150" placeholder="Descripcion" required></td>'            
     tds += '<td class="tds"><input class="inputs" type="date" name="fecha[]" maxlength = "20" placeholder="Fecha" required></td>'
     tds += '<td class="tds"><input class="inputs" type="text" name="extras[]" maxlength = "250" placeholder="Extras" required></td>'
     tds += '<td class="tds"><select name="id_empleado[]" required>@foreach ($empleados as $empleado)<option value="{{$empleado->id_empleado}}"> {{$empleado->nombre}}</option> @endforeach </select></td>'

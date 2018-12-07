@@ -18,7 +18,7 @@
             </tr>
             @foreach ($cliente as $c)
             <tr>
-            	<td><input type="text" name="RFC" maxlength = "25" placeholder="rfc" value = "{{$c->rfc}}" required></td>
+            	<td><input type="text" name="RFC" maxlength = "13" placeholder="rfc" value = "{{$c->rfc}}" required></td>
                 <td><input  type="text" name="nombre" maxlength = "20" placeholder="nombre" value = "{{$c->nombre}}" required></td>
                 <td><input  type="text" name="direccion" maxlength="30" placeholder="dirección" value = "{{$c->direccion}}" required></td>
                 <td><input  type="text" name="colonia" maxlength="25" placeholder="colonia" value = "{{$c->colonia}}" required></td>

@@ -18,7 +18,7 @@
                 <td class="tds">Eliminar</td>
             </tr>
             <tr>
-                <td class="tds"><input class="inputs" type="text" name="RFC[]" maxlength = "25" placeholder="rfc" required></td>
+                <td class="tds"><input class="inputs" type="text" name="RFC[]" maxlength = "13" placeholder="rfc" required></td>
                 <td class="tds"><input class="inputs" type="text" name="nombre[]" maxlength = "20" placeholder="nombre" required></td>
                 <td class="tds"><input class="inputs" type="text" name="direccion[]" maxlength="30" placeholder="dirección" required></td>
                 <td class="tds"><input class="inputs" type="text" name="colonia[]" maxlength="25" placeholder="colonia" required></td>

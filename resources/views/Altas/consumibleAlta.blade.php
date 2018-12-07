@@ -14,8 +14,8 @@
                 <td class="tds">Eliminar</td>
             </tr>
             <tr>
-                <td class="tds"><input class="inputs" type="text" name="Nombre[]" maxlength = "15" placeholder="Nombre" required></td>
-                <td class="tds"><input class="inputs" type="text"name="Descripción[]" maxlength = "15" placeholder="Descripción" required></td>
+                <td class="tds"><input class="inputs" type="text" name="Nombre[]" maxlength = "20" placeholder="Nombre" required></td>
+                <td class="tds"><input class="inputs" type="text"name="Descripción[]" maxlength = "250" placeholder="Descripción" required></td>
                 <td class="tds"><input class="inputs" type="number" name="existencias[]" min="1" placeholder="existencias" required></td>
                 <td class="tds"><input class="inputs" type="number" name="precio[]" min="1" placeholder="precio" required></td>
                 <td class="tds"><input class="inputs" type="number" name="costo[]" min="1" placeholder="costo" required></td>

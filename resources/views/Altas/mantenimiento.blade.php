@@ -17,7 +17,7 @@
                     <option value="{{$impresora->id_impresora}}"> {{$impresora->nombre}}</option>
                 @endforeach
                 </select></td>
-                <td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "50" placeholder="descripcion" required></td>
+                <td class="tds"><input class="inputs" type="text" name="descripcion[]" maxlength = "150" placeholder="descripcion" required></td>
                 <td class="tds"><input class="inputs" type="date" name="fechaMan[]" maxlength="30"  required></td>
                 <td class="tds"><input class="inputs" type="reset" class="noEliminar" value="Eliminar" /></td>
             </tr>
@@ -37,7 +37,7 @@
 $("#add").click(function () {
     var tds = '<tr>';
     tds += '<td class="tds"><select name="id_impresora[]" required> @foreach ($impresoras as $impresora)<option value="{{$impresora->id_impresora}}"> {{$impresora->nombre}}</option>@endforeach</select></td>' 
-    tds += '<td style="width: 8.1818%; min-width: 8.18%;"><input type="text" name="descripcion[]" maxlength = "50" placeholder="descripcion" required style="text-align: center; min-width: 100%; width:100%;"></td>'
+    tds += '<td style="width: 8.1818%; min-width: 8.18%;"><input type="text" name="descripcion[]" maxlength = "150" placeholder="descripcion" required style="text-align: center; min-width: 100%; width:100%;"></td>'
     tds += '<td style="width: 8.1818%; min-width: 8.18%;"><input type="date" name="fechaMan[]" maxlength="30" required style="text-align: center; min-width: 100%; width:100%;"></td>'
     tds += '<td style="width: 8.1818%; min-width: 8.18%;"><input type="button" class="borrar" value="Eliminar" style="min-width: 100%; width:100%;"/></td>'
     tds += '</tr>';
