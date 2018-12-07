@@ -68,9 +68,9 @@ Route::get('/Impresora/eliminar/{modelo}',"impresoraAltaController@eliminar");
 Route::post('/editarImpresora',"impresoraAltaController@editarImpresora");
 
 
-Route::get('/Reportes/reporteInventrio', "reporteInventarioController@index"); 
+Route::get('/Reportes/reporteInventario', "reporteInventarioController@index"); 
 Route::get('/dynamic_pdf/pdf',"reporteInventarioController@pdf");
-Route::get('/Reportes/reporteInventrio/Impresoras', "reporteInventarioController@index2"); 
+Route::get('/Reportes/reporteInventario/Impresoras', "reporteInventarioController@index2"); 
 Route::get('/dynamic_pdf2/pdf2',"reporteInventarioController@pdf2");
 
 Route::get('/BajaMod/Empleados',"empleadoController@busqueda");
