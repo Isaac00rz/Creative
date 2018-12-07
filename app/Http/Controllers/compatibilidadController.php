@@ -120,4 +120,35 @@ class compatibilidadController extends Controller
         }
         
     }
+
+   
+
+    public function busqueda(){
+        $consulta = DB::table('compatibilidad')// para hacer una consulta se selecciona una tabla y de almacena en una variable
+            ->select(DB::raw("id_consumible, id_impresora")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            // Uso del where
+            ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
+        return view('/Busquedas/busquedaCompatibilidad')->with('compatibilidad',$consulta);
+        // $consulta = DB::table('impresoras')
+        //         ->select(DB::raw("id_impresora , CONCAT(id_impresora,' ',modelo,'-',marca) as nombre"))
+        //         ->where('Activo','=','1')->get();
+        //         $consulta2 = DB::table('consumibles')
+        //         ->select(DB::raw("id_consumible , CONCAT(id_consumible,' ',nombre) as nombre"))
+        //         ->where('Activo','=','1')->get();
+
+        //         return view("/Busquedas/busquedaCompatibilidad")->with('impresoras',$consulta)->with('consumibles',$consulta2);
+
+    }
+
+
+ public function eliminar($id_consumible,$id_impresora){ //Eliminacion logica
+        $update = DB::table('compatibilidad')// para hacer un update se selecciona la tabla
+        ->where('id_consumible','=',$id_consumible) 
+        ->where('id_impresora','=',$id_impresora)// primero se da la condicion where
+        ->delete();// luego entre [] se ponen los datos a actualizar por ejemplo ['Activo' => 1,'nombre'>=$nombre]
+
+        return redirect('/BajaMod/Compatibilidad');
+    }
+
+
 }
