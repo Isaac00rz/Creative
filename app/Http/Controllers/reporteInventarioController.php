@@ -5,14 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use PDF;
-
+use Illuminate\Support\Facades\Auth;
 
 class reporteInventarioController extends Controller
 {
   function index()
   {
+     if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){ 
     $inventory_data = $this->get_customer_data();
     return view('Reportes/reporteInventario')->with('inventory_data',$inventory_data);
+    }else{
+          return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
   }
 
   function get_customer_data()
@@ -64,8 +78,22 @@ class reporteInventarioController extends Controller
 
 function index2()
   {
+    if(Auth::check()){//Si hay una sesion iniciada
+            $id = Auth::id();
+            $rol = '';
+            $consultaRol = DB::table('roles')->select('Rol')->where('id','=',$id)->get();
+            foreach($consultaRol as $c){
+                $rol = $c->Rol;
+            }
+            if($rol=='Administrador'){
     $inventory_data = $this->get_printer_data();
     return view('Reportes/reporteInventarioImpresoras')->with('inventory_data',$inventory_data);
+     }else{
+          return redirect('/home');// Si no es un usuario administrador se regresa al home
+            }
+        }else{
+            return redirect('/home');// Si no hay sesion iniciada se redirige al home
+        }
   }
 
   function get_printer_data()
