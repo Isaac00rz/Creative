@@ -1,5 +1,9 @@
 @include('Menus.usuario')
 <link rel = "stylesheet" href = "{{ asset('css/reporteTabla.css') }}"/>
+<link rel = "stylesheet" href = "{{ asset('css/paginacion.css') }}">
+<style>#paginas{
+margin-left: 0%;
+}</style>
 <title>Home</title>
 <section class="contenido">
     <h3 align="center">Mantenimietos Pendientes</h3>
@@ -9,7 +13,7 @@
                 <th>ID Mantenimiento</th>
                 <th>ID Impresora</th>
                 <th>Modelo</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Fecha de mantenimiento</th>
                 <th>Estado</th>
             </tr>
@@ -25,7 +29,7 @@
             @endforeach
         </table>
     </div>
-    {{ $reportes->links() }}
+    {{ $reportes->links('paginacion.paginacion') }}
 </section>
 </body>
 </html>

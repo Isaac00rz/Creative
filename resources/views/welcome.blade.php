@@ -84,9 +84,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Inicio</a>
-                    <a href="https://laracasts.com">Productos y servicios</a>
-                    <a href="https://laravel-news.com">Contacto</a>
+                    <a href="#">Inicio</a>
+                    <a href="#">Productos y servicios</a>
+                    <a href="#">Contacto</a>
                 </div>
             </div>
         </div>
