@@ -6,7 +6,8 @@
 	<thead>
 	<tr>
         <th>id_consumible</th>
-        <th>id_impresora</th>
+		<th>id_impresora</th>
+		<th>Acción</th>
        
 	</tr>
 	</thead>
@@ -14,9 +15,9 @@
 	
 	 @foreach ($compatibilidad as $compatibilidades)
 	 	<tr>
-		<td>{{$compatibilidades->id_consumible}}</td>
-		<td>{{$compatibilidades->id_impresora}}</td>
-		 <td><a href="{{ URL('/Compatibilidad/eliminar'.$compatibilidades->id_consumible,$compatibilidades->id_impresora) }}">Eliminar</a></td>
+		<td>{{$compatibilidades->nombreI}}</td>
+		<td>{{$compatibilidades->nombreC}}</td>
+		 <td><a href="{{ URL('/Compatibilidad/eliminar/'.$compatibilidades->id_consumible,$compatibilidades->id_impresora) }}">Eliminar</a></td>
 		 </tr>
  @endforeach
 

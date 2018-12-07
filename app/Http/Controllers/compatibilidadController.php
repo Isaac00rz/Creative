@@ -125,7 +125,9 @@ class compatibilidadController extends Controller
 
     public function busqueda(){
         $consulta = DB::table('compatibilidad')// para hacer una consulta se selecciona una tabla y de almacena en una variable
-            ->select(DB::raw("id_consumible, id_impresora")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
+            ->join('impresoras','impresoras.id_impresora','=','compatibilidad.id_impresora')
+            ->join('consumibles','consumibles.id_consumible','=','compatibilidad.id_consumible')
+            ->select(DB::raw("compatibilidad.id_consumible, compatibilidad.id_impresora, CONCAT(impresoras.id_impresora,' ',impresoras.modelo,'-',impresoras.marca) as nombreI, CONCAT(consumibles.id_consumible,' ',consumibles.nombre) as nombreC")) // Hay dos opciones, usar el DB::RAW para escribir las consultas con sintaxis de MySQl o solo separar por comas
             // Uso del where
             ->paginate(10);// Paginate sirve para hacer la paginacion automaticamente, en este caso la ara cada diez elementos
         return view('/Busquedas/busquedaCompatibilidad')->with('compatibilidad',$consulta);
