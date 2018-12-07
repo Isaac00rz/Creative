@@ -16,7 +16,7 @@
             </tr>
             @foreach ($mantenimiento as $i)
             <tr>
-                <td><input  type = "text" name="id_mantenimiento2" value = "{{$i->id_mantenimiento}}" disabled></td>
+                <td class ="tds"><input  type = "text" name="id_mantenimiento2" value = "{{$i->id_mantenimiento}}" disabled></td>
                 <td class="tds" ><select name="id_impresora" required>
                 @foreach ($impresoras as $impresora)
                     @if($i->id_impresora == $impresora->id_impresora)
@@ -24,15 +24,13 @@
                     @else
                         <option value="{{$impresora->id_impresora}}"> {{$impresora->nombre}}</option>
                     @endif
-                    
                 @endforeach
                 </select></td>
-                <td><input  type="text" name="descripcion" maxlength = "150" placeholder="descripcion" value = "{{$i->descripcion}}" required></td>
-                <td><input  type="date" name="fechaMan" value = "{{$i->fechaMan}}" required></td>
-                <td><input  type = "hidden" name="id_mantenimiento" value = "{{$i->id_mantenimiento}}"></td>
-                
+                <td class ="tds"><input  type="text" name="descripcion" maxlength = "150" placeholder="descripcion" value = "{{$i->descripcion}}" required></td>
+                <td class ="tds"><input  type="date" name="fechaMan" value = "{{$i->fechaMan}}" required></td>
             </tr>
             @endforeach
+            <input  type = "hidden" name="id_mantenimiento" value = "{{$i->id_mantenimiento}}">
         </table>
         <button id="aceptar" name="aceptar" type="submit" 
         ><b>Actualizar registros</b></button>

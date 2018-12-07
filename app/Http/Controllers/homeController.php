@@ -44,7 +44,25 @@ class homeController extends Controller
         if($rol=='Administrador'){
             return view('/Home/homeAdmin');
         }else if($rol == 'Usuario'){
-            return view('/Home/homeUsuario');
+            $ids = DB::table('FinMan')
+                ->select('id_mantenimiento')->get();
+                $data[] = 0;
+                foreach($ids as $id){
+                    $data[] = $id->id_mantenimiento;
+                }
+
+                if($data==null){
+                    $data[] = 0;
+                }
+                $consulta = DB::table('mantenimiento')
+                ->leftJoin('FinMan', 'mantenimiento.id_Mantenimiento', '=', 'FinMan.id_Mantenimiento')
+                ->join('impresoras','mantenimiento.id_impresora','=','impresoras.id_impresora')
+                ->select(DB::raw("mantenimiento.id_Mantenimiento,mantenimiento.descripcion,DATE_FORMAT(fechaMan,'%d/%m/%Y') as fechaMan,mantenimiento.id_impresora, modelo"))
+                ->where('mantenimiento.Activo','=',1)
+                ->whereNotIn('mantenimiento.id_Mantenimiento', $data)
+                ->orderBy('fechaMan', 'asc')->paginate(15);
+
+            return view('/Home/homeUsuario')->with('reportes',$consulta);
         }
     }
 
